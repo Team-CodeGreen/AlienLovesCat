@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject choicePanel;  // 선택지 패널
     public Button choice1Button;  // 선택지 1 버튼
     public Button choice2Button;  // 선택지 2 버튼
-    public InputField nameInputField; // 이름 입력 필드
+    public TMP_InputField nameInputField; // 이름 입력 필드
     public Image fadeImage;  // 페이드아웃에 사용할 검은 이미지
 
     private string[] dialogueLines = {

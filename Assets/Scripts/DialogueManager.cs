@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 public class DialogueManager : MonoBehaviour
 {
-    public Text dialogueText;  // UI Text 객체를 참조
+    public TMP_Text dialogueText;  // UI Text 객체를 참조
     public Button nextButton;  // UI Button 객체를 참조
     public Image backgroundImage; // UI Image 객체를 참조
 

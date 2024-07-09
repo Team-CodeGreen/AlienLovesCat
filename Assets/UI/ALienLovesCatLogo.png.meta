@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: c3cebfe85c6c4ec48971c051f4ed5659
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ALienLovesCatLogo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1078
+        width: 3000
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1205.5957, y: -9.342542}
+        - {x: -1258.5059, y: 32.972385}
+        - {x: -1346.1855, y: 32.972385}
+        - {x: -1396.0723, y: -9.342542}
+        - {x: -1396.0723, y: -157.4448}
+        - {x: -1331.0684, y: -157.4448}
+        - {x: -1331.0684, y: -154.42229}
+        - {x: -1288.7402, y: -157.4448}
+        - {x: -1205.5957, y: -157.4448}
+      - - {x: -1055.9355, y: 29.94989}
+        - {x: -1058.959, y: 32.972385}
+        - {x: -1143.6152, y: 32.972385}
+        - {x: -1146.6387, y: 29.94989}
+        - {x: -1146.6387, y: -3.297552}
+        - {x: -1143.6152, y: -6.320047}
+        - {x: -1170.8262, y: -103.03988}
+        - {x: -1170.8262, y: -157.4448}
+        - {x: -1009.07227, y: -157.4448}
+        - {x: -1006.0488, y: -154.42229}
+        - {x: -1006.0488, y: -119.663605}
+        - {x: -1009.07227, y: -116.641106}
+      - - {x: -945.5801, y: -116.641106}
+        - {x: -945.5801, y: -157.4448}
+        - {x: -880.5762, y: -157.4448}
+        - {x: -880.5762, y: -116.641106}
+      - - {x: -773.24414, y: -16.898779}
+        - {x: -795.9199, y: -36.544994}
+        - {x: -795.9199, y: -140.82106}
+        - {x: -779.291, y: -157.4448}
+        - {x: -605.44336, y: -157.4448}
+        - {x: -605.44336, y: -16.898779}
+      - - {x: -596.37305, y: -16.898779}
+        - {x: -596.37305, y: -157.4448}
+        - {x: -405.89648, y: -157.4448}
+        - {x: -405.89648, y: -38.056244}
+        - {x: -422.5254, y: -16.898779}
+      - - {x: -160.99805, y: 32.972385}
+        - {x: -230.53711, y: 32.972385}
+        - {x: -230.53711, y: -157.4448}
+        - {x: -65.759766, y: -157.4448}
+        - {x: -65.759766, y: -119.663605}
+        - {x: -68.7832, y: -116.641106}
+      - - {x: -50.64258, y: -16.898779}
+        - {x: -55.177734, y: -27.47751}
+        - {x: -55.177734, y: -136.28732}
+        - {x: -27.966797, y: -157.4448}
+        - {x: 105.06445, y: -157.4448}
+        - {x: 133.78711, y: -136.28732}
+        - {x: 133.78711, y: -21.432522}
+        - {x: 108.08789, y: -16.898779}
+      - - {x: 168.55664, y: -16.898779}
+        - {x: 168.55664, y: -157.4448}
+        - {x: 281.93555, y: -157.4448}
+        - {x: 334.8457, y: -134.77608}
+        - {x: 334.8457, y: -16.898779}
+      - - {x: 372.63867, y: -16.898779}
+        - {x: 343.91602, y: -36.544994}
+        - {x: 343.91602, y: -131.75359}
+        - {x: 346.93945, y: -131.75359}
+        - {x: 371.12695, y: -157.4448}
+        - {x: 534.3926, y: -157.4448}
+        - {x: 534.3926, y: -35.03375}
+        - {x: 511.7168, y: -16.898779}
+      - - {x: 557.06836, y: -16.898779}
+        - {x: 543.4629, y: -35.03375}
+        - {x: 543.4629, y: -157.4448}
+        - {x: 705.2168, y: -157.4448}
+        - {x: 733.93945, y: -149.88855}
+        - {x: 733.93945, y: -63.747448}
+        - {x: 723.3574, y: -16.898779}
+      - - {x: 928.9512, y: 32.972385}
+        - {x: 883.5996, y: 17.859911}
+        - {x: 883.5996, y: -103.03988}
+        - {x: 913.834, y: -157.4448}
+        - {x: 1074.0762, y: -157.4448}
+        - {x: 1074.0762, y: 32.972385}
+      - - {x: 1246.4121, y: -16.898779}
+        - {x: 1093.7285, y: -16.898779}
+        - {x: 1084.6582, y: -33.5225}
+        - {x: 1084.6582, y: -142.33232}
+        - {x: 1092.2168, y: -157.4448}
+        - {x: 1270.5996, y: -157.4448}
+        - {x: 1273.623, y: -154.42229}
+        - {x: 1273.623, y: -19.921274}
+      - - {x: 1362.8145, y: 32.972385}
+        - {x: 1359.791, y: 29.94989}
+        - {x: 1311.416, y: -16.898779}
+        - {x: 1308.3926, y: -19.921274}
+        - {x: 1308.3926, y: -53.168716}
+        - {x: 1311.416, y: -56.19121}
+        - {x: 1359.791, y: -154.42229}
+        - {x: 1362.8145, y: -157.4448}
+        - {x: 1423.2832, y: -157.4448}
+        - {x: 1474.6816, y: -106.06238}
+        - {x: 1474.6816, y: 7.28118}
+        - {x: 1459.5645, y: 32.972385}
+      - - {x: 11.337891, y: -57.702457}
+        - {x: 67.271484, y: -57.702457}
+        - {x: 67.271484, y: -115.12986}
+        - {x: 11.337891, y: -115.12986}
+      - - {x: 1151.1738, y: -107.57362}
+        - {x: 1207.1074, y: -107.57362}
+        - {x: 1207.1074, y: -115.12986}
+        - {x: 1151.1738, y: -115.12986}
+      - - {x: -945.5801, y: 32.972385}
+        - {x: -945.5801, y: -104.55113}
+        - {x: -942.55664, y: -107.57362}
+        - {x: -880.5762, y: -107.57362}
+        - {x: -856.3887, y: -63.747448}
+        - {x: -856.3887, y: 32.972385}
+      - - {x: -1329.5566, y: -33.5225}
+        - {x: -1308.3926, y: -33.5225}
+        - {x: -1303.8574, y: -28.988758}
+        - {x: -1297.8105, y: -7.8312945}
+        - {x: -1297.8105, y: -28.988758}
+        - {x: -1293.2754, y: -33.5225}
+        - {x: -1272.1113, y: -33.5225}
+        - {x: -1272.1113, y: -65.2587}
+        - {x: -1329.5566, y: -65.2587}
+      - - {x: -729.4043, y: -57.702457}
+        - {x: -671.959, y: -57.702457}
+        - {x: -671.959, y: -65.2587}
+        - {x: -729.4043, y: -65.2587}
+      - - {x: 410.43164, y: -57.702457}
+        - {x: 467.87695, y: -57.702457}
+        - {x: 467.87695, y: -65.2587}
+        - {x: 410.43164, y: -65.2587}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b42fc2e3dd1d8246a9d43b9b0bed407
+      internalID: 157233384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALienLovesCatLogo_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 678
+        width: 3000
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d29ebace9299049409740064351989a9
+      internalID: 801825891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALienLovesCatLogo_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 278
+        width: 3000
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a7de0db44194f42873998b1e3e8549
+      internalID: 1299426008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ALienLovesCatLogo_0: 157233384
+      ALienLovesCatLogo_1: 801825891
+      ALienLovesCatLogo_2: 1299426008
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

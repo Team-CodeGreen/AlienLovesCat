@@ -5,7 +5,6 @@ public class NPCController : MonoBehaviour
 {
     public DialogueManager dialogueManager;
     public string[] dialogueTexts; // 여러 개의 대화 텍스트를 담을 배열
-    private int currentDialogueIndex = 0; // 현재 대화 인덱스
 
     void Start()
     {

@@ -33,6 +33,13 @@ public class DialogueManager : MonoBehaviour
         dialogueTexts = dialogues; // 대화 텍스트 배열 설정
         dialogueUI.SetActive(true); // 다이얼로그 UI 활성화
         dialogueText.text = dialogueTexts[currentDialogueIndex]; // 첫 번째 대화 설정
+
+        // 플레이어 컨트롤러의 움직임 제한
+        PlayerController playerController = FindObjectOfType<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.SetMovementEnabled(false);
+        }
     }
 
     void DisplayNextDialogue()
@@ -54,5 +61,12 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false); // 다이얼로그 UI 비활성화
         Debug.Log("모든 대화가 끝났습니다.");
         currentDialogueIndex = 0; // 대화 인덱스 초기화
+
+        // 플레이어 컨트롤러의 움직임 제한 해제
+        PlayerController playerController = FindObjectOfType<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.SetMovementEnabled(true);
+        }
     }
 }

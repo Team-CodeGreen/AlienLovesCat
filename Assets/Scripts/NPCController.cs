@@ -17,17 +17,7 @@ public class NPCController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // 플레이어와 충돌 시 다이얼로그 트리거
-            if (currentDialogueIndex < dialogueTexts.Length)
-            {
-                dialogueManager.StartDialogue(dialogueTexts[currentDialogueIndex]); // 현재 인덱스의 대화 시작
-                currentDialogueIndex++; // 다음 대화로 넘어감
-            }
-            else
-            {
-                // 대화가 끝나면 원하는 동작 수행
-                Debug.Log("모든 대화가 끝났습니다.");
-            }
-            // 다른 필요한 동작 추가 가능
+            dialogueManager.StartDialogue(dialogueTexts); // 대화 시작
         }
     }
 }

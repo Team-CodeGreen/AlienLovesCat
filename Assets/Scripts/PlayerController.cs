@@ -24,17 +24,17 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
     Rigidbody2D rbody;
-    
+
 
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();   
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        
+
         axisH = Input.GetAxisRaw("Horizontal");
         axisV = Input.GetAxisRaw("Vertical");
 
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             nowAnimation = leftAnime;
         }
 
-        if(axisH == 0 && axisV == 0)
+        if (axisH == 0 && axisV == 0)
         {
             animator.Play(null);
         }
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     float GetAngle(Vector2 p1, Vector2 p2)
     {
         float angle;
-        if(axisH != 0 || axisV != 0)
+        if (axisH != 0 || axisV != 0)
         {
             float dx = p2.x - p1.x;
             float dy = p2.y - p1.y;
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+
         if (collision.gameObject.tag == "Item")
         {
             Debug.Log("아이템을 먹어야하는데 말이죠");
@@ -139,9 +139,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
 }
-
 
 
 

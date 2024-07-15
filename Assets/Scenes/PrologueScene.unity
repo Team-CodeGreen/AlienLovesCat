@@ -308,6 +308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116037268}
   - component: {fileID: 116037269}
+  - component: {fileID: 116037270}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -337,9 +338,38 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116037267}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df657635e2d7c604a83283a5e7306cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 1401404265}
+  nextButton: {fileID: 2042880223}
+  backgroundImage: {fileID: 362421504}
+  choicePanel: {fileID: 1466970550}
+  choice1Button: {fileID: 1674273639}
+  choice2Button: {fileID: 975360967}
+  nameInputField: {fileID: 36871526}
+  fadeImage: {fileID: 1320171085}
+  backgroundImages:
+  - {fileID: 21300000, guid: 6889e5682e6bf6648a41f6a234128cd1, type: 3}
+  - {fileID: 21300000, guid: 6889e5682e6bf6648a41f6a234128cd1, type: 3}
+  - {fileID: 21300000, guid: b79e38d755e8fab4b948c1beda204413, type: 3}
+  - {fileID: 21300000, guid: 9057b3b196ff0a543b29540f52467897, type: 3}
+  - {fileID: 21300000, guid: ab795152db42a5a49bb661b3ab6dfbe1, type: 3}
+  - {fileID: 21300000, guid: ab795152db42a5a49bb661b3ab6dfbe1, type: 3}
+  planetName: 
+  typingSpeed: 0.03
+--- !u!114 &116037270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116037267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7a6402a86650448807181ce2a213dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1401404265}

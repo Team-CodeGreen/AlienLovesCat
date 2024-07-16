@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4924095316453217696}
   - component: {fileID: 8565195657851927298}
   - component: {fileID: 9075211250201629091}
-  - component: {fileID: 175579064197656506}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -191,15 +190,6 @@ MonoBehaviour:
   rightAnime: PlayerRight
   leftAnime: PlayerLeft
   angleZ: -90
---- !u!114 &175579064197656506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5076096009397724070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4310489953bfbf547943a5ee0ad41dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  maxHP: 5
+  hp: 0
+  hpObject: {fileID: 1038304085145540472, guid: f16bd0c7bd5393a42813a11e17a69960, type: 3}

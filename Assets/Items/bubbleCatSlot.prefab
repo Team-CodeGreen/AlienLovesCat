@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2743902816863767536}
   - component: {fileID: 8985297110281622646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bubbleCatSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

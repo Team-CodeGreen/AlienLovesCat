@@ -24,12 +24,17 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
     Rigidbody2D rbody;
+
+    public int maxHP = 5;
+    public int hp;
+    public GameObject hpObject;
     
 
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();   
+        animator = GetComponent<Animator>();
+        hp = maxHP;
     }
 
     void Update()
@@ -137,6 +142,30 @@ public class PlayerController : MonoBehaviour
             Debug.Log("아이템을 먹어야하는데 말이죠");
             Destroy(collision.gameObject);
         }
+
+        else if (collision.gameObject.tag == "enemy") {
+            Debug.Log("한방 맞음");
+            if(hp <= 0)
+            {
+                Debug.Log("Gameover");
+                hp = 0;
+            }
+            else
+            {
+                hp -= 1;
+            }
+            
+            hpObject.GetComponent<HPManager>().UpdateHPImages(hp);
+            
+
+           //hpObject.DecreaseHP(1);
+           //hp = hpObject.currentHP;
+        }
+        else
+        {
+            Debug.Log(collision.gameObject.tag + "에 부딪힘");
+        }
+
 
     }
 

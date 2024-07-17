@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Item")
         {
             Debug.Log("아이템을 먹어야하는데 말이죠");
-            Destroy(collision.gameObject);
+            
         }
 
         else if (collision.gameObject.tag == "enemy") {

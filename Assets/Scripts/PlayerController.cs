@@ -106,7 +106,10 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Entered trigger with: " + other.gameObject.name);
+    }
     public void SetMovementEnabled(bool enabled)
     {
         canMove = enabled;

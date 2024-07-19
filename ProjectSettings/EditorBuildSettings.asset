@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Player.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/TitleScene2.unity
-    guid: 71e107ad3baae254ba61fb9c87d21ae1
+    path: Assets/Scenes/Ch1-1.unity
+    guid: b2c06edda47fe8343bc4206718178be5
   - enabled: 1
-    path: Assets/Scenes/TitleScene.unity
-    guid: 6e10da747299875488801c47ba9a0e25
+    path: Assets/Scenes/Ch1-2.unity
+    guid: 9e8f728fcb6a2704d9df267b45791022
+  - enabled: 1
+    path: Assets/Scenes/LivingRoom.unity
+    guid: ec2ed0aa3ddfde14b93a8b2744f13486
   m_configObjects: {}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c3cebfe85c6c4ec48971c051f4ed5659
+guid: 4baca1e49e7b24a49830e1b16da129ef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,84 +121,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: ALienLovesCatLogo_0
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 1078
-        width: 2970
-        height: 314
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25e107d330e17bf42a5944f7fc6cdde0
-      internalID: -1488444796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALienLovesCatLogo_1
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 691
-        width: 2935
-        height: 344
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31704ea71a5469e4bb5b2bd3b9f1d6fc
-      internalID: 1379771962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ALienLovesCatLogo_2
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 400
-        width: 2881
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1c1a0ed22b4e25478538558f0fdc11b
-      internalID: -1484596924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ALienLovesCatLogo_0: 215487740
-      ALienLovesCatLogo_1: 95317057
-      ALienLovesCatLogo_2: -1488444796
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

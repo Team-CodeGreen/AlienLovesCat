@@ -269,8 +269,8 @@ Transform:
   m_GameObject: {fileID: 788478986}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -0.41079998, z: 0}
-  m_LocalScale: {x: 25.779099, y: 25.779099, z: 25.779099}
+  m_LocalPosition: {x: 6, y: -0.4108, z: 0}
+  m_LocalScale: {x: 27.784714, y: 27.784714, z: 27.784714}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1711730060}
@@ -393,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 1517273446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 49.296, z: -3697.1997}
+  m_LocalPosition: {x: 0, y: 39, z: -3697.1997}
   m_LocalScale: {x: 25.502853, y: 25.502853, z: 25.502853}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -688,7 +688,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -82}
+  m_AnchoredPosition: {x: 0, y: -81}
   m_SizeDelta: {x: 533, y: 253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904927646
@@ -736,7 +736,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1904927649}
-        m_TargetAssemblyTypeName: StartButtonController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: OnStartButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -794,9 +794,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1904927644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48aab03ebb48dfc49a377b87d8062600, type: 3}
+  m_Script: {fileID: 11500000, guid: 6234d105521d5374da715b4c0c1bc44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneName: TitleScene2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -9,20 +9,20 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Transform slotParent;
 
-    [SerializeField]
-    private Transform slotParentMini;
+    //[SerializeField]
+    //private Transform slotParentMini;
 
     [SerializeField]
     private Slot[] totalSlots;
 
-    [SerializeField]
-    private Slot[] miniSlots;
+    //[SerializeField]
+    //private Slot[] miniSlots;
 
 
     private void OnValidate()
     {
         totalSlots = slotParent.GetComponentsInChildren<Slot>();
-        miniSlots = slotParentMini.GetComponentsInChildren<Slot>();
+        //miniSlots = slotParentMini.GetComponentsInChildren<Slot>();
     }
 
     void Awake()
@@ -30,9 +30,11 @@ public class Inventory : MonoBehaviour
         FreshSlot();
     }
 
+
+
     public void FreshSlot()
     {
-        if(totalSlots == null || miniSlots == null)
+        if(totalSlots == null/* || miniSlots == null*/)
         {
             Debug.Log("null");
             return;
@@ -43,20 +45,20 @@ public class Inventory : MonoBehaviour
         {
             totalSlots[i].item = items[i];
 
-            if(i < miniSlots.Length)
+            /*if(i < miniSlots.Length)
             {
                 miniSlots[i].item = items[i];
-            }
+            }*/
         }
 
         for (; i < totalSlots.Length; i++)
         {
             totalSlots[i].item = null;
 
-            if (i < miniSlots.Length)
+            /*if (i < miniSlots.Length)
             {
                 miniSlots[i].item = null;
-            }
+            }*/
         }
     }
 
@@ -72,5 +74,7 @@ public class Inventory : MonoBehaviour
             Debug.Log("½½·Ô ²Ë Âü");
         }
     }
+
+    
     
 }

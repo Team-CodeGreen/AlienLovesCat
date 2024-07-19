@@ -6,16 +6,21 @@ TagManager:
   tags:
   - enemy
   - Item
+  - NPC
+  - Door
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Item
   - enemy
   - 
+  - NPC
+  - Ground
+  - Door
   - 
   - 
   - 

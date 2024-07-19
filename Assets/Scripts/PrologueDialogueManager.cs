@@ -44,12 +44,12 @@ public class PrologueDialogueManager : MonoBehaviour
     }
 
     void Update()
-    {/*
-        if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && !isTyping && !nameInputField.gameObject.activeInHierarchy)
         {
             DisplayNextDialogue();
         }
-        */
+        
     }
 
     void DisplayNextDialogue()

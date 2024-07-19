@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (dialogueActive && (Input.GetKeyDown(KeyCode.Return)))
+        if (dialogueActive && Input.GetKeyDown(KeyCode.Return))
         {
             DisplayNextDialogue(); // 다음 대화로 넘어가는 함수 호출
         }

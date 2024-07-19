@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  scanObject: {fileID: 0}
   upAnime: PlayerUp
   downAnime: PlayerDown
   rightAnime: PlayerRight

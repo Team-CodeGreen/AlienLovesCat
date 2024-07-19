@@ -4616,6 +4616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueUI: {fileID: 867259346}
   dialogueText: {fileID: 1786909789}
+  typingSpeed: 0.05
+  nextSceneName: Room
 --- !u!4 &1106072919
 Transform:
   m_ObjectHideFlags: 0

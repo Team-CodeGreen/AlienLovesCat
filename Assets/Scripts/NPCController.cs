@@ -5,7 +5,7 @@ public class NPCController : MonoBehaviour
 {
     public DialogueManager dialogueManager;
     public string[] dialogueTexts; // 여러 개의 대화 텍스트를 담을 배열
-    private int currentDialogueIndex = 0; // 현재 대화 인덱스
+    //private int currentDialogueIndex = 0; // 현재 대화 인덱스
 
     private Animator animator; // Animator 컴포넌트 참조
 
@@ -15,9 +15,9 @@ public class NPCController : MonoBehaviour
         animator = GetComponent<Animator>(); // Animator 컴포넌트 가져오기
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             dialogueManager.StartDialogue(dialogueTexts); // 대화 시작
         }

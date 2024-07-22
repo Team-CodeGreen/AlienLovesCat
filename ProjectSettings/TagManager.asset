@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - enemy
+  - Item
   - NPC
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -12,9 +15,12 @@ TagManager:
   - Player
   - Water
   - UI
+  - Item
+  - enemy
+  - 
   - NPC
   - Ground
-  - 
+  - Door
   - 
   - 
   - 

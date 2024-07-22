@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PrologueDialogueManager : MonoBehaviour
 {
@@ -44,12 +45,12 @@ public class PrologueDialogueManager : MonoBehaviour
     }
 
     void Update()
-    {/*
-        if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && !isTyping && !nameInputField.gameObject.activeInHierarchy)
         {
             DisplayNextDialogue();
         }
-        */
+        
     }
 
     void DisplayNextDialogue()
@@ -184,5 +185,6 @@ public class PrologueDialogueManager : MonoBehaviour
 
         fadeColor.a = 1;
         fadeImage.color = fadeColor;
+        SceneManager.LoadScene("Ch1-1"); // ¾À º¯°æ
     }
 }

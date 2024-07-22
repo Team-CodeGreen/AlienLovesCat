@@ -9,9 +9,39 @@ EditorBuildSettings:
     path: Assets/Scenes/Player.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 7a9e8de6578290344b7fc4453485a2af
+  - enabled: 1
     path: Assets/Scenes/TitleScene2.unity
     guid: 71e107ad3baae254ba61fb9c87d21ae1
   - enabled: 1
-    path: Assets/Scenes/TitleScene.unity
-    guid: 6e10da747299875488801c47ba9a0e25
+    path: Assets/Scenes/PrologueScene.unity
+    guid: 571c7ca87aa981e41bdb25ae788161de
+  - enabled: 1
+    path: Assets/Scenes/Ch1-1.unity
+    guid: b2c06edda47fe8343bc4206718178be5
+  - enabled: 1
+    path: Assets/Scenes/Ch1-2.unity
+    guid: 9e8f728fcb6a2704d9df267b45791022
+  - enabled: 1
+    path: Assets/Scenes/LivingRoom.unity
+    guid: ec2ed0aa3ddfde14b93a8b2744f13486
+  - enabled: 1
+    path: Assets/Scenes/Room.unity
+    guid: a0a2c68f1bcf4704fa51b9f310371bf4
+  - enabled: 1
+    path: Assets/Scenes/Outside.unity
+    guid: f095ca3f7f57deb4991e4062a09e4695
+  - enabled: 1
+    path: Assets/Scenes/Outside2.unity
+    guid: 4ad27c68a13d6a04e9c3069424f72318
+  - enabled: 1
+    path: Assets/Scenes/UFO.unity
+    guid: 0063019a5c0f7254e8a43afa49af1603
+  - enabled: 1
+    path: Assets/Scenes/Planet01.unity
+    guid: f2c36ebb05dbd4b41a1398ca81ae4196
+  - enabled: 1
+    path: Assets/Scenes/Planet01_IN.unity
+    guid: db4f885c4926f1245b9ee451b48478d7
   m_configObjects: {}

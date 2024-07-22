@@ -36,6 +36,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         inventory = GameObject.Find("Mini");
     }
 
+    
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("OnpointerClick");

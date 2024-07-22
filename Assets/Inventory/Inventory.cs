@@ -75,6 +75,12 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void RemoveItem(Item _item)
+    {
+        items.Remove(_item);
+        FreshSlot();
+    }
+
     
     
 }

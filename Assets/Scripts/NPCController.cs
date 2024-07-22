@@ -15,9 +15,9 @@ public class NPCController : MonoBehaviour
         animator = GetComponent<Animator>(); // Animator 컴포넌트 가져오기
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
             dialogueManager.StartDialogue(dialogueTexts); // 대화 시작
         }

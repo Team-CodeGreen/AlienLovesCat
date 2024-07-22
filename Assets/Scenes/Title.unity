@@ -269,8 +269,8 @@ Transform:
   m_GameObject: {fileID: 788478986}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -0.4108, z: 0}
-  m_LocalScale: {x: 27.784714, y: 27.784714, z: 27.784714}
+  m_LocalPosition: {x: 6, y: -0.4108, z: 2744.9}
+  m_LocalScale: {x: 69.04224, y: 69.04224, z: 69.04224}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1711730060}
@@ -393,8 +393,8 @@ Transform:
   m_GameObject: {fileID: 1517273446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 39, z: -3697.1997}
-  m_LocalScale: {x: 25.502853, y: 25.502853, z: 25.502853}
+  m_LocalPosition: {x: -8.9095, y: 97.522, z: -6442.4}
+  m_LocalScale: {x: 63.37204, y: 63.37204, z: 63.37204}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1711730060}
@@ -596,11 +596,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -625,7 +625,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -680,15 +680,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904927644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.217648, y: 0.217648, z: 0.217648}
+  m_LocalPosition: {x: 0, y: 0, z: 2744.9}
+  m_LocalScale: {x: 0.54083353, y: 0.54083353, z: 0.54083353}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1711730060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -81}
+  m_AnchoredPosition: {x: -8.9095, y: -200.67}
   m_SizeDelta: {x: 533, y: 253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904927646

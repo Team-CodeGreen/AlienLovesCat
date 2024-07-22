@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement; // 씬 관리를 위해 추가
+using UnityEngine.SceneManagement;
+using UnityEngine.UI; // 씬 관리를 위해 추가
 
 public class DialogueForStart : MonoBehaviour
 {
 
     public GameObject dialogueUI;
     public TMP_Text dialogueText;
+    public Button nextButton; // 버튼 참조 추가
 
     private bool dialogueActive = false; // 대화 활성화 여부를 나타내는 변수
     private string[] dialogueTexts = {
@@ -24,12 +26,12 @@ public class DialogueForStart : MonoBehaviour
     public float typingSpeed = 0.05f; // 타이핑 속도
     public string nextSceneName = "NextScene"; // 다음 씬의 이름
 
-
     void Start()
     {
-        dialogueActive = true; // 대화 활성화 상태로 변경
-        dialogueUI.SetActive(true); // 시작 시 다이얼로그 UI 활성화
-        DisplayNextDialogue(); // 첫 번째 대화 시작
+        dialogueActive = true;
+        dialogueUI.SetActive(true);
+        nextButton.onClick.AddListener(OnNextButtonClicked); // 버튼 클릭 이벤트 추가
+        DisplayNextDialogue();
     }
 
     void Update()
@@ -38,61 +40,71 @@ public class DialogueForStart : MonoBehaviour
         {
             if (!isTyping)
             {
-                DisplayNextDialogue(); // 다음 대화로 넘어가는 함수 호출
-            }
-            else
-            {
-                // 타이핑 중에 Enter 키를 누르면 모든 텍스트를 즉시 표시
-                StopAllCoroutines();
-                dialogueText.text = dialogueTexts[currentDialogueIndex];
-                isTyping = false;
+                DisplayNextDialogue();
             }
         }
     }
 
     public void StartDialogue(string[] dialogues)
     {
-        dialogueTexts = dialogues; // 대화 텍스트 배열 설정
-        currentDialogueIndex = 0; // 대화 인덱스 초기화
-        dialogueText.text = string.Empty; // 텍스트 초기화
-        dialogueActive = true; // 대화 활성화 상태로 변경
-        dialogueUI.SetActive(true); // 다이얼로그 UI 활성화
-        DisplayNextDialogue(); // 첫 번째 대화 시작
+        dialogueTexts = dialogues;
+        currentDialogueIndex = 0;
+        dialogueText.text = string.Empty;
+        dialogueActive = true;
+        dialogueUI.SetActive(true);
+        DisplayNextDialogue();
     }
 
     void DisplayNextDialogue()
     {
         if (currentDialogueIndex < dialogueTexts.Length)
         {
-            StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex])); // 타이핑 애니메이션 시작
+            StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex]));
         }
         else
         {
-            EndDialogue(); // 대화 종료 함수 호출
+            EndDialogue();
         }
     }
 
-    private bool isTyping = false; // 타이핑 중인지 여부
+    private bool isTyping = false;
 
     IEnumerator TypeSentence(string sentence)
     {
-        isTyping = true; // 타이핑 중으로 설정
-        dialogueText.text = ""; // 텍스트 초기화
+        isTyping = true;
+        dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed); // 타이핑 속도에 따라 대기
+            yield return new WaitForSeconds(typingSpeed);
         }
-        isTyping = false; // 타이핑 완료
-        currentDialogueIndex++; // 다음 대화 인덱스로 이동
+        isTyping = false;
+        currentDialogueIndex++;
     }
 
     void EndDialogue()
     {
-        dialogueActive = false; // 대화 비활성화 상태로 변경
-        dialogueUI.SetActive(false); // 다이얼로그 UI 비활성화
+        dialogueActive = false;
+        dialogueUI.SetActive(false);
         Debug.Log("모든 대화가 끝났습니다.");
-        currentDialogueIndex = 0; // 대화 인덱스 초기화
-        SceneManager.LoadScene(nextSceneName); // 씬 변경
+        currentDialogueIndex = 0;
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+    void OnNextButtonClicked() // 버튼 클릭 시 호출될 메서드 추가
+    {
+        if (dialogueActive)
+        {
+            if (!isTyping)
+            {
+                DisplayNextDialogue();
+            }
+            else
+            {
+                StopAllCoroutines();
+                dialogueText.text = dialogueTexts[currentDialogueIndex];
+                isTyping = false;
+            }
+        }
     }
 }

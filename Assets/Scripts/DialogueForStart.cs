@@ -13,7 +13,7 @@ public class DialogueForStart : MonoBehaviour
     public Button nextButton; // 버튼 참조 추가
 
     private bool dialogueActive = false; // 대화 활성화 여부를 나타내는 변수
-    private string[] dialogueTexts = {
+    public string[] dialogueTexts = {
         "...",
         "이건 말도 안 돼.",
         "난 지구의 멸망을 막아야만 해.",

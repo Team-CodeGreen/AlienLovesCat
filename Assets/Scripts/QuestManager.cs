@@ -9,8 +9,8 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         //퀘스트 추가
-        AddQuest(new Quest(1, "가방을 챙기세요.", "방에서 필요한 물품을 챙기세요."));
-        AddQuest(new Quest(2, "두번째 퀘스트", "사혼의 구슬을 모아"));
+        //AddQuest(new Quest(1, "가방을 챙기세요.", "방에서 필요한 물품을 챙기세요."));
+        //AddQuest(new Quest(2, "두번째 퀘스트", "사혼의 구슬을 모아"));
     }
 
     public void AddQuest(Quest quest) //퀘스트 추가

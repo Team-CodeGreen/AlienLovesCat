@@ -3168,7 +3168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -40.55819, y: 29.85427}
+  m_AnchoredPosition: {x: -40.558197, y: 29.854279}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &167972391
@@ -4739,8 +4739,17 @@ MonoBehaviour:
   dialogueUI: {fileID: 867259346}
   dialogueText: {fileID: 1786909789}
   nextButton: {fileID: 66851724}
+  dialogueTexts:
+  - ...
+  - "\uC774\uAC74 \uB9D0\uB3C4 \uC548 \uB3FC."
+  - "\uB09C \uC9C0\uAD6C\uC758 \uBA78\uB9DD\uC744 \uB9C9\uC544\uC57C\uB9CC \uD574."
+  - "\uC65C\uB0D0\uD558\uBA74..."
+  - "\uC65C\uB0D0\uD558\uBA74..."
+  - "\uACE0\uC591\uC774\uB97C \uAD6C\uD574\uC57C \uD558\uB2C8\uAE4C."
+  - "\uB2F9\uC7A5 \uB5A0\uB0A0 \uC900\uBE44\uB97C \uD574\uC57C\uACA0\uC5B4."
   typingSpeed: 0.05
-  nextSceneName: Room
+  nextSceneName: quest
+  newQuest: {fileID: 11400000, guid: c6497bd95b7ea594f88fbca1fa2274b5, type: 2}
 --- !u!4 &1106072919
 Transform:
   m_ObjectHideFlags: 0
@@ -5063,6 +5072,52 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1636926249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1636926251}
+  - component: {fileID: 1636926250}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1636926250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636926249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc22c1deaebbfe44c889cda250558e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 11400000, guid: c6497bd95b7ea594f88fbca1fa2274b5, type: 2}
+--- !u!4 &1636926251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636926249}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.11598168, y: -0.6437766, z: 0.030746555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1771210678
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,3 +5771,4 @@ SceneRoots:
   - {fileID: 1965539913}
   - {fileID: 590018945}
   - {fileID: 1106072919}
+  - {fileID: 1636926251}

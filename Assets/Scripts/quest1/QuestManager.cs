@@ -22,8 +22,10 @@ public class QuestManager : MonoBehaviour
 
     public void AddQuest(string title, string description)
     {
-        Quest newQuest = new Quest(title, description);
+        Quest newQuest = ScriptableObject.CreateInstance<Quest>();
+        newQuest.Initialize(title, description);
         quests.Add(newQuest);
+        UpdateQuestUI();
     }
 
     public void CompleteQuest(string title)
@@ -32,11 +34,21 @@ public class QuestManager : MonoBehaviour
         if (quest != null)
         {
             quest.Complete();
+            UpdateQuestUI();
         }
     }
 
     public List<Quest> GetAllQuests()
     {
         return quests;
+    }
+
+    private void UpdateQuestUI()
+    {
+        QuestUI questUI = FindObjectOfType<QuestUI>();
+        if (questUI != null)
+        {
+            questUI.UpdateQuestUI();
+        }
     }
 }

@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest : MonoBehaviour
+[CreateAssetMenu(fileName = "NewQuest", menuName = "Quest System/Quest")]
+public class Quest : ScriptableObject
 {
     public string title;
     public string description;
     public bool isCompleted;
 
-    public Quest(string title, string description)
+    public void Initialize(string title, string description)
     {
         this.title = title;
         this.description = description;

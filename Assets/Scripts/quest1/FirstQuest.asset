@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3510e4bb93ed6274c8daf1bf8e67b508, type: 3}
   m_Name: FirstQuest
   m_EditorClassIdentifier: 
-  title: "\uD544\uC694\uD55C \uBB3C\uAC74\uC744 \uCC59\uAE30\uC790."
-  description: "\uBC29\uC744 \uC0B4\uD3B4\uBCF4\uC790."
+  title: "\uD544\uC694\uD55C \uBB3C\uAC74 \uCC59\uAE30\uAE30"
+  description: ":\uBC29\uC744 \uC0B4\uD3B4\uBCF4\uC790."
   isCompleted: 0

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cba6589475da3574ea04840fec3538c3, type: 3}
-  m_Name: New Item
+  m_Name: CatFrame
   m_EditorClassIdentifier: 
-  itemName: CatEncyclopidia
-  itemImage: {fileID: 21300000, guid: 8cb588d575798354eb424671038ff4a7, type: 3}
+  itemName: CatFrame
+  itemImage: {fileID: 21300000, guid: 99c1d8af4c77fd541a011732263ebe29, type: 3}
   itemUpload: 0

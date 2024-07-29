@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5323475765730850570}
   - component: {fileID: 2012717804531739680}
   m_Layer: 6
-  m_Name: bubbleCat
+  m_Name: CatEncy
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f8ebc8b543156f640aff9d9c7e27b4b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8cb588d575798354eb424671038ff4a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f9d99277a49751439318a82ec5dbde5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 2306d4d43c4166341afe9ce1f05aba9f, type: 2}
+  item: {fileID: 11400000, guid: af669cf3096d7604eb2943127d90c63f, type: 2}
   KeyImage: {fileID: 0}

@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1f714c842d56d4e8466950b09b2849, type: 3}
-  m_Name: CatPlaying
+  m_Script: {fileID: 11500000, guid: 3510e4bb93ed6274c8daf1bf8e67b508, type: 3}
+  m_Name: FirstQuest
   m_EditorClassIdentifier: 
-  itemName: CatPlaying
-  itemImage: {fileID: 21300000, guid: 88d0eb5d2227ff54b88d8d089ecdb0e2, type: 3}
-  available: 0
-  usable: 0
+  title: "\uD544\uC694\uD55C \uBB3C\uAC74 \uCC59\uAE30\uAE30"
+  description: ":\uBC29\uC744 \uC0B4\uD3B4\uBCF4\uC790."
+  isCompleted: 0

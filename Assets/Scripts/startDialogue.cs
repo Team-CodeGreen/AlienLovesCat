@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // 씬 관리를 위해 추가
+using UnityEngine.UI;
 
-public class DialogueForStart : MonoBehaviour
+public class startDialogue : MonoBehaviour
 {
+
     public GameObject dialogueUI;
     public TMP_Text dialogueText;
-    public Button nextButton;
+    public Button nextButton; // 버튼 참조 추가
 
-    private bool dialogueActive = false;
+    private bool dialogueActive = false; // 대화 활성화 여부를 나타내는 변수
     public string[] dialogueTexts = {
         "...",
         "이건 말도 안 돼.",
@@ -20,18 +21,15 @@ public class DialogueForStart : MonoBehaviour
         "왜냐하면...",
         "고양이를 구해야 하니까.",
         "당장 떠날 준비를 해야겠어."
-    };
-    private int currentDialogueIndex = 0;
-    public float typingSpeed = 0.05f;
-    public string nextSceneName = "NextScene";
-
-    public Quest newQuest; // 추가할 퀘스트 에셋
+    }; // 대화 텍스트 배열
+    private int currentDialogueIndex = 0; // 현재 대화 인덱스
+    public float typingSpeed = 0.05f; // 타이핑 속도
 
     void Start()
     {
         dialogueActive = true;
         dialogueUI.SetActive(true);
-        nextButton.onClick.AddListener(OnNextButtonClicked);
+        nextButton.onClick.AddListener(OnNextButtonClicked); // 버튼 클릭 이벤트 추가
         DisplayNextDialogue();
     }
 
@@ -89,20 +87,9 @@ public class DialogueForStart : MonoBehaviour
         dialogueUI.SetActive(false);
         Debug.Log("모든 대화가 끝났습니다.");
         currentDialogueIndex = 0;
-
-        if (QuestManager.instance != null && newQuest != null)
-        {
-            QuestManager.instance.AddQuest(newQuest.title, newQuest.description);
-        }
-        else
-        {
-            Debug.LogError("QuestManager 인스턴스를 찾을 수 없거나 newQuest가 설정되지 않았습니다!");
-        }
-
-        SceneManager.LoadScene(nextSceneName);
     }
 
-    void OnNextButtonClicked()
+    void OnNextButtonClicked() // 버튼 클릭 시 호출될 메서드 추가
     {
         if (dialogueActive)
         {

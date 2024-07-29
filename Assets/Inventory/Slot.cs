@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour, IPointerClickHandler
+public class Slot : MonoBehaviour
 {
+    
     [SerializeField]
     Image image;
-
-    private GameObject inventory;
 
     private Item _item;
     public Item item
@@ -30,25 +28,5 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    //이건 inventory.cs에 들어가야하는 거 아닐까?
-    private void Start()
-    {
-        inventory = GameObject.Find("Mini");
-    }
-
     
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("OnpointerClick");
-        if(item != null)
-        {
-            if (eventData.button == PointerEventData.InputButton.Right)
-            {
-                Debug.Log(item);
-                inventory.GetComponent<MiniInventory>().UploadItem(item);
-                
-            }
-        }
-    }
 }

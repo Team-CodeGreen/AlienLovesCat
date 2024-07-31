@@ -18,19 +18,19 @@ public class HPManager : MonoBehaviour
         UpdateHPImages(maxHP);
     }
 
-    
-    
-    /*public void DecreaseHP(int amount)
+
+
+    public void DecreaseHP(int amount)
     {
         currentHP -= amount;
-        if(currentHP <= 0)
+        if (currentHP <= 0)
         {
             currentHP = 0;
             Debug.Log("GameOver");
         }
 
-        UpdateHPImages();
-    }*/
+        UpdateHPImages(currentHP);
+    }
 
     public void UpdateHPImages(int hp)
     {

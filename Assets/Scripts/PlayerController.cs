@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         return angle;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+   /* private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Item")
         {
@@ -139,10 +139,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log(collision.gameObject.tag + "에 부딪힘");
         }
+    }*/
 
-
-
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Entered trigger with: " + other.gameObject.name);

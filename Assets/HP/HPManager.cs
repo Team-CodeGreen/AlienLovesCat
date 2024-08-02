@@ -11,30 +11,18 @@ public class HPManager : MonoBehaviour
     public int currentHP;
     public Sprite[] hpImages;
 
+    private GameObject player;
+
     // Start is called before the first frame update
     private void Start()
     {
         image = GetComponent<Image>();
-        UpdateHPImages(maxHP);
+        player = GameObject.Find("Player");
+        UpdateHPImages(player.GetComponent<PlayerController>().currentHP);
     }
-
-    
-    
-    /*public void DecreaseHP(int amount)
-    {
-        currentHP -= amount;
-        if(currentHP <= 0)
-        {
-            currentHP = 0;
-            Debug.Log("GameOver");
-        }
-
-        UpdateHPImages();
-    }*/
 
     public void UpdateHPImages(int hp)
     {
-        image.sprite = hpImages[hp];
-        
+        image.sprite = hpImages[hp];   
     }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CatEncy
   m_EditorClassIdentifier: 
   itemName: CatEncy
-  itemImage: {fileID: 21300000, guid: 8cb588d575798354eb424671038ff4a7, type: 3}
-  available: 0
+  itemImage: {fileID: 21300000, guid: 45292a11519094c4a810d5b833e7c3c7, type: 3}
+  available: 1
   usable: 0

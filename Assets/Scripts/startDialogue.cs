@@ -35,7 +35,7 @@ public class startDialogue : MonoBehaviour
 
     void Update()
     {
-        if (dialogueActive && Input.GetKeyDown(KeyCode.Return))
+        if (dialogueActive && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
         {
             if (!isTyping)
             {

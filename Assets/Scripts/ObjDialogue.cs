@@ -5,15 +5,12 @@ using TMPro;
 using UnityEngine.UI;
 using System;  // TMP를 사용하기 위해 추가
 
-public class DialogueManager : MonoBehaviour
+public class ObjDialogue : MonoBehaviour
 {
 
     public GameObject dialogueUI;
     public TMP_Text dialogueText;
     public Button nextButton; // 버튼 참조 추가
-
-    public Image npcImage; // NPC 이미지를 위한 참조 추가
-    public TMP_Text npcNameText; // NPC 이름 텍스트를 위한 참조 추가
 
     private bool dialogueActive = false; // 대화 활성화 여부를 나타내는 변수
     private string[] dialogueTexts; // 대화 텍스트 배열

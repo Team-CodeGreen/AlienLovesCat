@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
 
     public int maxHP = 5;
-    public int hp;
+    public int currentHP;
     public GameObject hpObject;
     
 
@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        hp = maxHP;
+        currentHP = maxHP;
+        hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
 
     }
 
@@ -108,48 +109,31 @@ public class PlayerController : MonoBehaviour
         return angle;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Item")
-        {
-            Debug.Log("아이템을 먹어야하는데 말이죠");
-            
-        }
-
-
-        else if (collision.gameObject.tag == "enemy") {
-            Debug.Log("한방 맞음");
-            if(hp <= 0)
-            {
-                Debug.Log("Gameover");
-                hp = 0;
-            }
-            else
-            {
-                hp -= 1;
-            }
-            
-            hpObject.GetComponent<HPManager>().UpdateHPImages(hp);
-            
-
-           //hpObject.DecreaseHP(1);
-           //hp = hpObject.currentHP;
-        }
-        else
-        {
-            Debug.Log(collision.gameObject.tag + "에 부딪힘");
-        }
-
-
-
-    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Entered trigger with: " + other.gameObject.name);
     }
+
     public void SetMovementEnabled(bool enabled)
     {
         canMove = enabled;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentHP -= amount;
+        hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
+
+        if(currentHP <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Gameover");
     }
 }
 

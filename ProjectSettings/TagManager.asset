@@ -8,6 +8,10 @@ TagManager:
   - Item
   - NPC
   - Door
+  - glass
+  - paper
+  - trash
+  - plastic
   layers:
   - Default
   - TransparentFX
@@ -21,9 +25,6 @@ TagManager:
   - NPC
   - Ground
   - Door
-  - 
-  - 
-  - 
   - 
   - 
   - 

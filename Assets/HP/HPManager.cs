@@ -23,6 +23,14 @@ public class HPManager : MonoBehaviour
 
     public void UpdateHPImages(int hp)
     {
-        image.sprite = hpImages[hp];   
+        if(image != null)
+        {
+            image.sprite = hpImages[hp];
+
+        }
+        
+            
+        
+        
     }
 }

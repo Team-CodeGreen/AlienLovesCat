@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Rigidbody2D rbody;
 
-
+    //hp
     public int maxHP = 5;
     public int currentHP;
     public GameObject hpObject;
@@ -31,6 +33,16 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = true; // 플레이어 움직임 제어 변수 추가
 
+    //데미지 hp 움직이기
+    public Transform hpBarTransform;
+    public float shakeDuration = 1.0f;
+    public float shakeMagnitude = 3.0f;
+
+    private Vector3 originalPos;
+
+    //데미지 플레이어 움직임
+    public float knockbackForce = 10.0f;
+    public float knockbackDuration = 1.0f;
 
     void Start()
     {
@@ -39,6 +51,11 @@ public class PlayerController : MonoBehaviour
 
         currentHP = maxHP;
         hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
+
+        if(hpBarTransform != null)
+        {
+            originalPos = hpBarTransform.localPosition;
+        }
 
     }
 
@@ -125,10 +142,49 @@ public class PlayerController : MonoBehaviour
         currentHP -= amount;
         hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
 
-        if(currentHP <= 0)
+        //Vector3 vector = Quaternion.AngleAxis(0.3f, Vector3.forward) * Vector3.right; rigidbody2d.AddForce(vector * speed);
+    
+        if(hpBarTransform != null)
+        {
+            StartCoroutine(ShakeHPBar());
+        }
+
+        StartCoroutine(KnockbackPlayer());
+
+        if (currentHP <= 0)
         {
             Die();
         }
+    }
+
+    private IEnumerator ShakeHPBar()
+    {
+        
+        float elapsed = 0.0f;
+
+        while(elapsed < shakeDuration)
+        {
+            float x = UnityEngine.Random.Range(-1f, 1f) * shakeMagnitude;
+            float y = UnityEngine.Random.Range(-1f, 1f) * shakeMagnitude;
+
+            hpBarTransform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        hpBarTransform.localPosition = originalPos;
+    }
+
+    //knockbackPlayer 함수 들어가긴 하는데 티가 안나
+    private IEnumerator KnockbackPlayer()
+    {
+        Debug.Log("asdf");
+        Vector2 knockbackDirection = -transform.right * knockbackForce;
+        rbody.AddForce(knockbackDirection, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(knockbackDuration);
+
+        rbody.velocity = Vector2.zero;
     }
 
     void Die()

@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ShakeHPBar());
         }
 
-        StartCoroutine(KnockbackPlayer());
+        //StartCoroutine(KnockbackPlayer());
 
         if (currentHP <= 0)
         {

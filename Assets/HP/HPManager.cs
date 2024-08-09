@@ -28,9 +28,5 @@ public class HPManager : MonoBehaviour
             image.sprite = hpImages[hp];
 
         }
-        
-            
-        
-        
     }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CatPhotocard
   m_EditorClassIdentifier: 
   itemName: CatPhotocard
-  itemImage: {fileID: 21300000, guid: 8cf6c5908de43684494fb33cece98675, type: 3}
-  available: 0
+  itemImage: {fileID: 21300000, guid: a95a656c783e0db4798ed9c8c34fdcf9, type: 3}
+  available: 1
   usable: 0

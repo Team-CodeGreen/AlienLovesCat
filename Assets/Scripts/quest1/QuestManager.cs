@@ -27,21 +27,7 @@ public class QuestManager : MonoBehaviour
         quests.Add(newQuest);
         UpdateQuestUI();
     }
-    public void CollectItem(Item item)
-    {
-        foreach (Quest quest in quests)
-        {
-            if (!quest.isCompleted)
-            {
-                quest.CollectItem(item);
-                if (quest.isCompleted)
-                {
-                    Debug.Log($"Quest '{quest.title}' completed!");
-                }
-            }
-        }
-        UpdateQuestUI();
-    }
+
     public void CompleteQuest(string title)
     {
         Quest quest = quests.Find(q => q.title == title);

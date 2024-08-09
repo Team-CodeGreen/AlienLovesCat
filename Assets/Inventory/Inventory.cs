@@ -146,9 +146,5 @@ public class Inventory : MonoBehaviour
         items.Remove(_item);
         FreshSlot();
     }
-    public List<Item> GetItems()
-    {
-        return items;
-    }
 
 }

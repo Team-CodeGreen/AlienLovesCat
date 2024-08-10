@@ -1602,6 +1602,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCDialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 5217433489303834278, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -108.27881
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217433489303834278, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 70.174194
+      objectReference: {fileID: 0}
     - target: {fileID: 6016578360250992106, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1707,6 +1715,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5305051457726168377, guid: b22bac65abe5ade45bd172bd23de7f5e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -108.27881
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305051457726168377, guid: b22bac65abe5ade45bd172bd23de7f5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 70.174194
+      objectReference: {fileID: 0}
     - target: {fileID: 5311391287396510310, guid: b22bac65abe5ade45bd172bd23de7f5e, type: 3}
       propertyPath: m_Name
       value: Dialogue
@@ -80717,7 +80733,7 @@ Transform:
   m_GameObject: {fileID: 1935926142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.5, y: 4.5, z: -0.025081167}
+  m_LocalPosition: {x: 48.5, y: 4.3, z: -0.025081167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

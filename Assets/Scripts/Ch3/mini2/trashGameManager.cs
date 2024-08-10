@@ -26,7 +26,7 @@ public class trashGameManager : MonoBehaviour
         if (gameActive)
         {
             timeRemaining -= Time.deltaTime;
-            timerText.text = "Time: " + Mathf.Ceil(timeRemaining).ToString();
+            timerText.text = "" + Mathf.Ceil(timeRemaining).ToString();
 
             if (timeRemaining <= 0 || ScoreManager.Instance.Score >= targetScore)
             {

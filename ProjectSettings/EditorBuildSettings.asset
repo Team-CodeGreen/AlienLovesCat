@@ -78,6 +78,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch3/miniTitle2.unity
     guid: 599826e3c65a7da4cb6d0360dfc0007a
   - enabled: 1
+    path: Assets/Scenes/Ch3/HelpScene2.unity
+    guid: 9feed559e44c80544a30cfcfaf02472c
+  - enabled: 1
     path: Assets/Scenes/Ch3/trashGame.unity
     guid: 7446a9806d05a4448bd2a9f477d1b10c
   - enabled: 1

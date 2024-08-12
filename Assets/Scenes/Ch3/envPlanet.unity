@@ -2788,7 +2788,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 43
-      m_TileSpriteIndex: 43
+      m_TileSpriteIndex: 47
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2798,7 +2798,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 44
-      m_TileSpriteIndex: 44
+      m_TileSpriteIndex: 46
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2818,7 +2818,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 44
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2828,7 +2828,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 43
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3745,10 +3745,10 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 32db7ecffbd243f4db69f1c19b8749ae, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 885954683, guid: 0387bd220475ff04bb9dffc115ff2f0a, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 292087445, guid: 0387bd220475ff04bb9dffc115ff2f0a, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1533604801, guid: 0387bd220475ff04bb9dffc115ff2f0a, type: 3}
   - m_RefCount: 1
@@ -3832,15 +3832,15 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -874060211, guid: 0387bd220475ff04bb9dffc115ff2f0a, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 985981042, guid: 8145ab13b0c6da143ad58058f9fac81a, type: 3}
+    m_Data: {fileID: 292087445, guid: 0387bd220475ff04bb9dffc115ff2f0a, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 885954683, guid: 0387bd220475ff04bb9dffc115ff2f0a, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -649296547, guid: 8145ab13b0c6da143ad58058f9fac81a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 394675258, guid: 8145ab13b0c6da143ad58058f9fac81a, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -649296547, guid: 8145ab13b0c6da143ad58058f9fac81a, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+    m_Data: {fileID: 985981042, guid: 8145ab13b0c6da143ad58058f9fac81a, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 2112619540, guid: 8145ab13b0c6da143ad58058f9fac81a, type: 3}
   m_TileMatrixArray:
@@ -10188,7 +10188,7 @@ PrefabInstance:
     - target: {fileID: 3423536715871250754, guid: 45956559c58316a46b219a61e244c6c7, type: 3}
       propertyPath: dialogueTexts.Array.data[0]
       value: "\uC774\uACF3\uC740 \uBB54\uAC00 \uC798\uBABB\uB41C \uB290\uB08C\uC774
-        \uB4E0\uB2E4..."
+        \uB4E0\uB2E4."
       objectReference: {fileID: 0}
     - target: {fileID: 3423536715871250754, guid: 45956559c58316a46b219a61e244c6c7, type: 3}
       propertyPath: dialogueTexts.Array.data[1]
@@ -11654,6 +11654,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4539044461866445845, guid: b22bac65abe5ade45bd172bd23de7f5e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5311391287396510310, guid: b22bac65abe5ade45bd172bd23de7f5e, type: 3}
       propertyPath: m_Name
       value: canvas
@@ -11758,11 +11762,11 @@ PrefabInstance:
     - target: {fileID: 2305308236735114654, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 27d4b5c45b765254382b87e96f6e895f, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}
     - target: {fileID: 2305308236735114654, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 6732840402540233546, guid: 27d4b5c45b765254382b87e96f6e895f, type: 2}
+      objectReference: {fileID: -2357117950256584546, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}
     - target: {fileID: 2305308236735114654, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

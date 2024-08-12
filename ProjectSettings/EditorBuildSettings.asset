@@ -42,10 +42,10 @@ EditorBuildSettings:
     path: Assets/Scenes/UFO.unity
     guid: 0063019a5c0f7254e8a43afa49af1603
   - enabled: 1
-    path: Assets/Scenes/Planet01.unity
+    path: Assets/Scenes/Ch2/Planet01.unity
     guid: f2c36ebb05dbd4b41a1398ca81ae4196
   - enabled: 1
-    path: Assets/Scenes/Planet01_IN.unity
+    path: Assets/Scenes/Ch2/Planet01_IN.unity
     guid: db4f885c4926f1245b9ee451b48478d7
   - enabled: 1
     path: Assets/Scenes/Ch3/envPlanet.unity

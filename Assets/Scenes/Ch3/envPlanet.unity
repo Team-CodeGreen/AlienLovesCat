@@ -10188,7 +10188,7 @@ PrefabInstance:
     - target: {fileID: 3423536715871250754, guid: 45956559c58316a46b219a61e244c6c7, type: 3}
       propertyPath: dialogueTexts.Array.data[0]
       value: "\uC774\uACF3\uC740 \uBB54\uAC00 \uC798\uBABB\uB41C \uB290\uB08C\uC774
-        \uB4E0\uB2E4..."
+        \uB4E0\uB2E4."
       objectReference: {fileID: 0}
     - target: {fileID: 3423536715871250754, guid: 45956559c58316a46b219a61e244c6c7, type: 3}
       propertyPath: dialogueTexts.Array.data[1]

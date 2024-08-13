@@ -1,21 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class GetInfoItem : MonoBehaviour
 {
-    [SerializeField]
-    private Item info;
 
-    private Inventory inventory;
+    private GameObject inventory;
 
     public GameObject Panel;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory = GameObject.Find("Inventory");
     }
 
     // Update is called once per frame
@@ -24,9 +23,9 @@ public class GetInfoItem : MonoBehaviour
         
     }
 
-    public void InputItem()
+    public void InputItem(Item info)
     {
-        inventory.AddItem(info);
+        inventory.GetComponent<Inventory>().AddItem(info);
         Panel.SetActive(false);
     }
 }

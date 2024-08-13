@@ -7,17 +7,22 @@ using UnityEngine.UI;
 public class NumberController : MonoBehaviour
 {
     public TextMeshProUGUI[] numberTexts;
+
     private int[] currentNumbers = new int[4];
 
     private int[] correctPassword = { 2, 2, 6, 8 };
 
     public GameObject SupercomputerScreen;
+    public GameObject GetInfoScreen;
+
+    public TextMeshProUGUI resultText;
 
     void Start()
     {
-        Debug.Log(correctPassword[0]);
-        Debug.Log(currentNumbers[0]);
         UpdateNumberTexts();
+        resultText.text = "";
+        SupercomputerScreen.SetActive(true);
+
     }
 
     public void IncreaseNumber(int index)
@@ -25,6 +30,7 @@ public class NumberController : MonoBehaviour
         Debug.Log("증가");
         currentNumbers[index] = (currentNumbers[index] + 1) % 10;
         UpdateNumberTexts();
+
     }
 
     public void DecreaseNumber(int index)
@@ -49,13 +55,14 @@ public class NumberController : MonoBehaviour
         {
             if (currentNumbers[i] != correctPassword[i])
             {
-                Debug.Log("틀림~");
-                SupercomputerScreen.SetActive(false);
+                resultText.text = "틀렸습니다. 반성하세요.";
                 return;
             }
         }
-        Debug.Log("맞음!");
+
+        resultText.text = "잠금이 해제되었습니다.";
         SupercomputerScreen.SetActive(false);
+        GetInfoScreen.SetActive(true);
     }
 
 }

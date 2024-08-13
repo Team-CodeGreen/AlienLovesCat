@@ -7,9 +7,7 @@ public class QuizController : MonoBehaviour
     [SerializeField]
     private GameObject KeyImage;
 
-    public int QuizNum;
-
-    public GameObject[] QuizScreen;
+    public GameObject QuizScreen;
 
     private bool canActivate = false;
 
@@ -24,7 +22,7 @@ public class QuizController : MonoBehaviour
     {
         if (canActivate && Input.GetKeyDown(KeyCode.Space))
         {
-            QuizScreen[QuizNum].SetActive(true);
+            QuizScreen.SetActive(true);
         }
     }
 
@@ -34,7 +32,6 @@ public class QuizController : MonoBehaviour
         {
             KeyImage.SetActive(true);
             canActivate = true;
-
         }
     }
 
@@ -45,5 +42,10 @@ public class QuizController : MonoBehaviour
             KeyImage.SetActive(false);
             canActivate = false;
         }
+    }
+
+    public void CloseQuizCanvas()
+    {
+        QuizScreen.SetActive(false);
     }
 }

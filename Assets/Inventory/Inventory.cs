@@ -18,6 +18,8 @@ public class Inventory : MonoBehaviour
     private const int slotsPerPage = 7;
     private Slot focusedSlot = null;
 
+    private ItemQuest itemQuest;
+
     private void OnValidate()
     {
         slots = slotParent.GetComponentsInChildren<Slot>();
@@ -112,6 +114,8 @@ public class Inventory : MonoBehaviour
             slots[i].item = null;
             
         }
+
+        
     }
 
     private void SetFocus(int slotIndex)
@@ -137,6 +141,7 @@ public class Inventory : MonoBehaviour
         {
             items.Add(_item);
             FreshSlot();
+            
         }
         
     }
@@ -146,9 +151,23 @@ public class Inventory : MonoBehaviour
         items.Remove(_item);
         FreshSlot();
     }
+
     public List<Item> GetItems()
     {
         return items;
+    }
+
+    public bool HasItem(Item _item)
+    {
+        foreach (Item i in items)
+        {
+            if (i == _item)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

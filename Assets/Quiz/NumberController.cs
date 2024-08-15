@@ -17,8 +17,10 @@ public class NumberController : MonoBehaviour
 
     public TextMeshProUGUI resultText;
 
+
     void Start()
     {
+
         UpdateNumberTexts();
         resultText.text = "";
         SupercomputerScreen.SetActive(true);
@@ -27,7 +29,7 @@ public class NumberController : MonoBehaviour
 
     public void IncreaseNumber(int index)
     {
-        Debug.Log("증가");
+       
         currentNumbers[index] = (currentNumbers[index] + 1) % 10;
         UpdateNumberTexts();
 
@@ -35,7 +37,7 @@ public class NumberController : MonoBehaviour
 
     public void DecreaseNumber(int index)
     {
-        Debug.Log("감소");
+      
         currentNumbers[index] = (currentNumbers[index] - 1 + 10) % 10;
         UpdateNumberTexts();
     }
@@ -61,8 +63,15 @@ public class NumberController : MonoBehaviour
         }
 
         resultText.text = "잠금이 해제되었습니다.";
+        
+
         SupercomputerScreen.SetActive(false);
         GetInfoScreen.SetActive(true);
+    }
+
+    public void ClosePanel()
+    {
+        SupercomputerScreen.SetActive(false);
     }
 
 }

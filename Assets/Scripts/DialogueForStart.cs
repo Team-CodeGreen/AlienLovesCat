@@ -25,7 +25,7 @@ public class DialogueForStart : MonoBehaviour
     public float typingSpeed = 0.05f;
     public string nextSceneName = "NextScene";
 
-    public Quest newQuest; // 추가할 퀘스트 에셋
+    //public Quest newQuest; // 추가할 퀘스트 에셋
 
     void Start()
     {
@@ -90,14 +90,14 @@ public class DialogueForStart : MonoBehaviour
         Debug.Log("모든 대화가 끝났습니다.");
         currentDialogueIndex = 0;
 
-        if (QuestManager.instance != null && newQuest != null)
+        /*if (QuestManager.instance != null && newQuest != null)
         {
             QuestManager.instance.AddQuest(newQuest.title, newQuest.description);
         }
         else
         {
             Debug.LogError("QuestManager 인스턴스를 찾을 수 없거나 newQuest가 설정되지 않았습니다!");
-        }
+        }*/
 
         SceneManager.LoadScene(nextSceneName);
     }

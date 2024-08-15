@@ -4,49 +4,105 @@ using UnityEngine;
 
 public class ToxicGasEnemy : MonoBehaviour
 {
-    public float moveSpeed = 2.0f; // 유해가스의 이동 속도
-    public Vector3 moveDirection = new Vector3(-1, 0, 0); // 유해가스의 이동 방향
+    public enum MoveDirection { Horizontal, Vertical }
+    public MoveDirection moveDirection = MoveDirection.Horizontal;
+    public float moveDistance = 5.0f;
+    public float speed = 2.0f;
+    public int damage = 1;
+    public int health = 5;
 
-    // 타일맵 경계를 정의하는 변수
-    public Vector2 minBoundary = new Vector2(-10, -10);
-    public Vector2 maxBoundary = new Vector2(10, 10);
+    public GameObject deathEffectPrefab; // 유해가스 사라질 때의 파티클 효과 프리팹
 
-    private void Start()
+    private Vector3 startPoint;
+    private Vector3 target;
+    private Animator animator;
+
+    void Start()
     {
+        startPoint = transform.position;
+        animator = GetComponent<Animator>();
+        SetTarget();
     }
 
-    private void Update()
+    void Update()
     {
-        // 적을 움직이게 합니다.
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        MoveGuard();
+    }
 
-        // 적이 타일맵 경계를 벗어나지 않도록 위치를 제한합니다.
-        Vector3 clampedPosition = new Vector3(
-            Mathf.Clamp(transform.position.x, minBoundary.x, maxBoundary.x),
-            Mathf.Clamp(transform.position.y, minBoundary.y, maxBoundary.y),
-            transform.position.z
-        );
-
-        transform.position = clampedPosition;
-
-        // 경계에 도달했을 때 이동 방향을 반전시킵니다.
-        if (transform.position.x <= minBoundary.x || transform.position.x >= maxBoundary.x)
+    void SetTarget()
+    {
+        if (moveDirection == MoveDirection.Horizontal)
         {
-            moveDirection.x = -moveDirection.x;
+            target = new Vector3(startPoint.x + moveDistance, startPoint.y, startPoint.z);
+            animator.Play("GasRight");
         }
-        if (transform.position.y <= minBoundary.y || transform.position.y >= maxBoundary.y)
+        else
         {
-            moveDirection.y = -moveDirection.y;
+            target = new Vector3(startPoint.x, startPoint.y - moveDistance, startPoint.z);
+            animator.Play("GasDown");
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void MoveGuard()
     {
-        // 플레이어와 충돌할 때의 처리
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player != null)
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+        if (transform.position == startPoint)
         {
-            player.TakeDamage(1); // 플레이어에게 1의 피해를 줍니다.
+            if (moveDirection == MoveDirection.Horizontal)
+            {
+                target = new Vector3(startPoint.x + moveDistance, startPoint.y, startPoint.z);
+                animator.Play("GasRight");
+            }
+            else
+            {
+                target = new Vector3(startPoint.x, startPoint.y - moveDistance, startPoint.z);
+                animator.Play("GasDown");
+            }
+        }
+        else if (transform.position == target)
+        {
+            if (moveDirection == MoveDirection.Horizontal)
+            {
+                target = startPoint;
+                animator.Play("GasLeft");
+            }
+            else
+            {
+                target = startPoint;
+                animator.Play("GasUp");
+            }
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        // 유해가스 사라질 때 파티클 효과 생성
+        Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+
+        // 유해가스 오브젝트 삭제
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.TakeDamage(damage);
+            }
         }
     }
 }

@@ -36,10 +36,16 @@ public class GetInfoItem : MonoBehaviour
             
         }else
         {
-
-            inventory.GetComponent<Inventory>().AddItem(info);
-            panel.SetActive(false);
-            haveItem = true;
+            if (inventory != null)
+            {
+                inventory.GetComponent<Inventory>().AddItem(info);
+                panel.SetActive(false);
+                haveItem = true;
+            }
+            else
+            {
+                Debug.Log("inventory ¾øÀ½");
+            }
         }
     }
 

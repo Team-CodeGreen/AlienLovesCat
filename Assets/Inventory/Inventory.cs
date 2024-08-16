@@ -18,7 +18,9 @@ public class Inventory : MonoBehaviour
     private const int slotsPerPage = 7;
     private Slot focusedSlot = null;
 
+    [SerializeField]
     private ItemQuest itemQuest;
+   
 
     private void OnValidate()
     {
@@ -115,7 +117,6 @@ public class Inventory : MonoBehaviour
             
         }
 
-        
     }
 
     private void SetFocus(int slotIndex)
@@ -141,8 +142,18 @@ public class Inventory : MonoBehaviour
         {
             items.Add(_item);
             FreshSlot();
-            
+            Debug.Log("아이템 넣음!");
         }
+
+        
+        if(itemQuest != null)
+        {
+            itemQuest.CheckQuestCompletion();
+        }else
+        {
+            Debug.Log("itemQuest 없음");
+        }
+        
         
     }
     

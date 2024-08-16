@@ -9,43 +9,49 @@ public class NPCSceneChangeDialogue : MonoBehaviour
 {
     public GameObject dialogueUI;
     public TMP_Text dialogueText;
-    public Button nextButton; // 버튼 참조 추가
+    public Button nextButton;
+    public Button option1Button; // 선택지 1 버튼
+    public Button option2Button; // 선택지 2 버튼
 
-    public Image npcImage; // NPC 이미지를 위한 참조 추가
-    public TMP_Text npcNameText; // NPC 이름 텍스트를 위한 참조 추가
+    public Image npcImage;
+    public TMP_Text npcNameText;
 
-    private bool dialogueActive = false; // 대화 활성화 여부를 나타내는 변수
-    private string[] dialogueTexts; // 대화 텍스트 배열
-    private int currentDialogueIndex = 0; // 현재 대화 인덱스
-    public float typingSpeed = 0.05f; // 타이핑 속도
+    private bool dialogueActive = false;
+    private string[] dialogueTexts;
+    private int currentDialogueIndex = 0;
+    public float typingSpeed = 0.05f;
 
     private bool isTyping = false;
 
-    public string nextScene; // 전환할 씬의 이름 추가
+    public string nextScene;
 
     void Start()
     {
-        dialogueUI.SetActive(false); // 시작 시 다이얼로그 UI 비활성화
+        dialogueUI.SetActive(false);
         nextButton.onClick.AddListener(OnNextButtonClicked);
+        option1Button.onClick.AddListener(OnOption1Clicked); // 선택지 1 클릭 이벤트 추가
+        option2Button.onClick.AddListener(OnOption2Clicked); // 선택지 2 클릭 이벤트 추가
+
+        option1Button.gameObject.SetActive(false); // 시작 시 선택지 버튼 숨기기
+        option2Button.gameObject.SetActive(false); // 시작 시 선택지 버튼 숨기기
     }
 
     void Update()
     {
         if (dialogueActive && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
         {
-            OnNextButtonClicked(); // 엔터 키와 스페이스바를 눌렀을 때 OnNextButtonClicked 호출
+            OnNextButtonClicked();
         }
     }
 
     public void StartDialogue(string[] dialogues)
     {
-        dialogueActive = true; // 대화 활성화 상태로 변경
-        dialogueTexts = dialogues; // 대화 텍스트 배열 설정
-        dialogueUI.SetActive(true); // 다이얼로그 UI 활성화
-        currentDialogueIndex = 0; // 대화 인덱스 초기화
-        StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex])); // 첫 번째 대화 설정
+        dialogueActive = true;
+        dialogueTexts = dialogues;
+        dialogueUI.SetActive(true);
+        currentDialogueIndex = 0;
+        StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex]));
 
-        // 플레이어 컨트롤러의 움직임 제한
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {
@@ -57,32 +63,24 @@ public class NPCSceneChangeDialogue : MonoBehaviour
     {
         if (currentDialogueIndex < dialogueTexts.Length)
         {
-            StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex])); // 다음 대화 설정
+            StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex]));
         }
         else
         {
-            EndDialogue(); // 대화 종료 함수 호출
+            ShowOptions(); // 대화가 끝나면 선택지 버튼 표시
         }
     }
 
     void EndDialogue()
     {
-        dialogueActive = false; // 대화 비활성화 상태로 변경
-        dialogueUI.SetActive(false); // 다이얼로그 UI 비활성화
-        Debug.Log("모든 대화가 끝났습니다.");
-        currentDialogueIndex = 0; // 대화 인덱스 초기화
+        dialogueActive = false;
+        dialogueUI.SetActive(false);
+        currentDialogueIndex = 0;
 
-        // 플레이어 컨트롤러의 움직임 제한 해제
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {
             playerController.SetMovementEnabled(true);
-        }
-
-        // 씬 전환
-        if (!string.IsNullOrEmpty(nextScene))
-        {
-            SceneManager.LoadScene(nextScene);
         }
     }
 
@@ -98,13 +96,13 @@ public class NPCSceneChangeDialogue : MonoBehaviour
         isTyping = false;
     }
 
-    void OnNextButtonClicked() // 버튼 클릭 시 호출될 메서드 추가
+    void OnNextButtonClicked()
     {
         if (dialogueActive)
         {
             if (!isTyping)
             {
-                currentDialogueIndex++; // 현재 인덱스를 여기서 증가시키도록 이동
+                currentDialogueIndex++;
                 DisplayNextDialogue();
             }
             else
@@ -112,8 +110,25 @@ public class NPCSceneChangeDialogue : MonoBehaviour
                 StopAllCoroutines();
                 dialogueText.text = dialogueTexts[currentDialogueIndex];
                 isTyping = false;
-                currentDialogueIndex++; // 현재 인덱스를 여기서 증가시키도록 이동
+                currentDialogueIndex++;
             }
         }
+    }
+
+    void ShowOptions()
+    {
+        nextButton.gameObject.SetActive(false); // 다음 버튼 숨기기
+        option1Button.gameObject.SetActive(true); // 선택지 1 버튼 표시
+        option2Button.gameObject.SetActive(true); // 선택지 2 버튼 표시
+    }
+
+    void OnOption1Clicked()
+    {
+        SceneManager.LoadScene(nextScene); // "플로깅 연습하기"를 선택하면 씬 전환
+    }
+
+    void OnOption2Clicked()
+    {
+        EndDialogue(); // "하지 않는다"를 선택하면 대화 종료
     }
 }

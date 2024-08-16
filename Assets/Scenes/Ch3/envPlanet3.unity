@@ -984,11 +984,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1416331677980585262, guid: 1cb87792ac4e1034cbb10c5cde263c55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.98
+      value: 13.06
       objectReference: {fileID: 0}
     - target: {fileID: 1416331677980585262, guid: 1cb87792ac4e1034cbb10c5cde263c55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.7
+      value: -15.55
       objectReference: {fileID: 0}
     - target: {fileID: 1416331677980585262, guid: 1cb87792ac4e1034cbb10c5cde263c55, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42623,15 +42623,15 @@ PrefabInstance:
       objectReference: {fileID: 652332435}
     - target: {fileID: 3326393145176237785, guid: 5f74f0dbdde51154ca5158bb16bb98f5, type: 3}
       propertyPath: dialogueTexts.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3326393145176237785, guid: 5f74f0dbdde51154ca5158bb16bb98f5, type: 3}
       propertyPath: dialogueTexts.Array.data[0]
-      value: "\uD658\uC601\uD569\uB2C8\uB2E4, \uD658\uACBD\uD589\uC131 \uB300\uD45C\uC785\uB2C8\uB2E4."
+      value: "\uD658\uACBD \uD589\uC131\uC5D0 \uC628 \uAC78 \uD658\uACBD\uD574!"
       objectReference: {fileID: 0}
     - target: {fileID: 3326393145176237785, guid: 5f74f0dbdde51154ca5158bb16bb98f5, type: 3}
       propertyPath: dialogueTexts.Array.data[1]
-      value: "\uD658\uACBD \uBCF4\uD638\uC5D0 \uAD00\uC2EC\uC774 \uC788\uC73C\uC2DC\uB2E4\uACE0\uC694?"
+      value: "\uB0B4 \uAC1C\uADF8 \uC5B4\uB560\uC5B4?"
       objectReference: {fileID: 0}
     - target: {fileID: 3326393145176237785, guid: 5f74f0dbdde51154ca5158bb16bb98f5, type: 3}
       propertyPath: dialogueTexts.Array.data[2]

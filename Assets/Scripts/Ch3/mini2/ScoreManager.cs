@@ -65,7 +65,7 @@ public class ScoreManager : MonoBehaviour
 
         // 게임을 중단시키고 다음 씬으로 넘어가기
         Time.timeScale = 0f; // 게임을 멈추기 위해 시간을 멈춤
-        SceneManager.LoadScene("mushroomHouse3"); // 다음 씬으로 전환
+        SceneManager.LoadScene("mushroomHouse4"); // 다음 씬으로 전환
     }
 
     void HandleFailure()

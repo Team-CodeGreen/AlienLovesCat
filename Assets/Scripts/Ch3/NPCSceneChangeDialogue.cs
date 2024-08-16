@@ -29,11 +29,11 @@ public class NPCSceneChangeDialogue : MonoBehaviour
     {
         dialogueUI.SetActive(false);
         nextButton.onClick.AddListener(OnNextButtonClicked);
-        option1Button.onClick.AddListener(OnOption1Clicked); // 선택지 1 클릭 이벤트 추가
-        option2Button.onClick.AddListener(OnOption2Clicked); // 선택지 2 클릭 이벤트 추가
+        option1Button.onClick.AddListener(OnOption1Clicked);
+        option2Button.onClick.AddListener(OnOption2Clicked);
 
-        option1Button.gameObject.SetActive(false); // 시작 시 선택지 버튼 숨기기
-        option2Button.gameObject.SetActive(false); // 시작 시 선택지 버튼 숨기기
+        option1Button.gameObject.SetActive(false);
+        option2Button.gameObject.SetActive(false);
     }
 
     void Update()
@@ -50,6 +50,9 @@ public class NPCSceneChangeDialogue : MonoBehaviour
         dialogueTexts = dialogues;
         dialogueUI.SetActive(true);
         currentDialogueIndex = 0;
+        nextButton.gameObject.SetActive(true); // nextButton 활성화
+        option1Button.gameObject.SetActive(false); // 선택지 버튼 비활성화
+        option2Button.gameObject.SetActive(false); // 선택지 버튼 비활성화
         StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex]));
 
         PlayerController playerController = FindObjectOfType<PlayerController>();
@@ -76,6 +79,10 @@ public class NPCSceneChangeDialogue : MonoBehaviour
         dialogueActive = false;
         dialogueUI.SetActive(false);
         currentDialogueIndex = 0;
+
+        nextButton.gameObject.SetActive(false); // nextButton 비활성화
+        option1Button.gameObject.SetActive(false); // 선택지 버튼 비활성화
+        option2Button.gameObject.SetActive(false); // 선택지 버튼 비활성화
 
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)

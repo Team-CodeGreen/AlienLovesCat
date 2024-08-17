@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9190e88bc6d42642b28b5ecbee4bc0a, type: 3}
-  m_Name: New Item Quest 1
+  m_Name: test
   m_EditorClassIdentifier: 
-  questName: "\uD14C\uC2A4\uD06C\uD018\uC2A4\uD2B82"
+  questName: test1
   isCompleted: 0
-  requiredItem: {fileID: 11400000, guid: af669cf3096d7604eb2943127d90c63f, type: 2}
+  requiredItem: {fileID: 11400000, guid: f295e2d46c57a6741887e678358b7f9f, type: 2}

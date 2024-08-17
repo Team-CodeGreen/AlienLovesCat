@@ -30,6 +30,11 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         FreshSlot();
+
+        if (itemQuest == null)
+        {
+            itemQuest = ScriptableObject.CreateInstance<ItemQuest>();
+        }
     }
 
     private void Start()
@@ -148,8 +153,11 @@ public class Inventory : MonoBehaviour
         
         if(itemQuest != null)
         {
+            Debug.Log("itemQuest 있음");
             itemQuest.CheckQuestCompletion();
-        }else
+            
+        }
+        else
         {
             Debug.Log("itemQuest 없음");
         }

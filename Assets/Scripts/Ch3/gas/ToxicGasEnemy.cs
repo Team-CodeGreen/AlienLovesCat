@@ -16,6 +16,7 @@ public class ToxicGasEnemy : MonoBehaviour
     private Vector3 startPoint;
     private Vector3 target;
     private Animator animator;
+    private bool isDead = false; // 죽은 상태를 추적하는 변수
 
     void Start()
     {
@@ -26,7 +27,10 @@ public class ToxicGasEnemy : MonoBehaviour
 
     void Update()
     {
-        MoveGuard();
+        if (!isDead) // 죽지 않았을 때만 움직임을 처리
+        {
+            MoveGuard();
+        }
     }
 
     void SetTarget()
@@ -79,7 +83,7 @@ public class ToxicGasEnemy : MonoBehaviour
     {
         health -= amount;
 
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
         }
@@ -87,21 +91,41 @@ public class ToxicGasEnemy : MonoBehaviour
 
     void Die()
     {
-        // 유해가스 사라질 때 파티클 효과 생성
-        Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        isDead = true; // 죽은 상태로 설정
 
-        // 유해가스 오브젝트 삭제
-        Destroy(gameObject);
+        // 유해가스 사라질 때 파티클 효과 생성
+        if (deathEffectPrefab != null)
+        {
+            Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        }
+
+        // 객체를 비활성화하지 않고 위치를 숨긴 후 다시 나타나도록 함
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        // 객체를 화면 밖으로 이동시켜 숨김
+        transform.position = new Vector3(10000, 10000, 0);
+
+        // 5초 대기
+        yield return new WaitForSeconds(5f);
+
+        // 다시 활성화하여 초기 위치로 되돌리고, 체력 초기화
+        transform.position = startPoint;
+        health = 5; // 예시로 5로 초기화, 필요에 따라 조정 가능
+        isDead = false; // 죽은 상태 해제
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !isDead)
         {
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             if (playerController != null)
             {
                 playerController.TakeDamage(damage);
+
             }
         }
     }

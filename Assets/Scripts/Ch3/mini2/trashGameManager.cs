@@ -24,7 +24,6 @@ public class trashGameManager : MonoBehaviour
         timeRemaining = timeLimit;
         gameActive = true;
         clearPanel.SetActive(false);
-        ScoreManager.Instance.ResetScore(); // 점수 초기화
     }
 
     void Update()

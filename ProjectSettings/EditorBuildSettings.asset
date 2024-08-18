@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch1/quest.unity
     guid: b31e504807e293640b006f6ff8882599
   - enabled: 1
+    path: Assets/Scenes/Ch1/LivingRoom2.unity
+    guid: e5743038efc2636438d3fc627a95e5c7
+  - enabled: 1
     path: Assets/Scenes/Ch1/Room.unity
     guid: a0a2c68f1bcf4704fa51b9f310371bf4
   - enabled: 1
@@ -87,7 +90,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch3/trashGame.unity
     guid: 7446a9806d05a4448bd2a9f477d1b10c
   - enabled: 1
-    path: Assets/Scenes/Ch3/mushroomHouse3.unity
+    path: Assets/Scenes/Ch3/mushroomHouse4.unity
     guid: cf419574c289f764b86bf96f7ee03cd3
-
   m_configObjects: {}

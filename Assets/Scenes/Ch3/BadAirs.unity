@@ -29420,7 +29420,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   health: 5
-  deathEffectPrefab: {fileID: 0}
+  deathEffectPrefab: {fileID: 1998948848540504748, guid: f5da9a8fd00f02d4b966f3dc87fbe7e1, type: 3}
 --- !u!1 &1096449028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5076096009397724070, guid: 1cb87792ac4e1034cbb10c5cde263c55, type: 3}
@@ -29662,7 +29662,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   health: 5
-  deathEffectPrefab: {fileID: 0}
+  deathEffectPrefab: {fileID: 1998948848540504748, guid: f5da9a8fd00f02d4b966f3dc87fbe7e1, type: 3}
 --- !u!1001 &1316691665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30013,7 +30013,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   health: 5
-  deathEffectPrefab: {fileID: 0}
+  deathEffectPrefab: {fileID: 1998948848540504748, guid: f5da9a8fd00f02d4b966f3dc87fbe7e1, type: 3}
 --- !u!1 &1462825588
 GameObject:
   m_ObjectHideFlags: 0
@@ -30104,7 +30104,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   health: 5
-  deathEffectPrefab: {fileID: 0}
+  deathEffectPrefab: {fileID: 1998948848540504748, guid: f5da9a8fd00f02d4b966f3dc87fbe7e1, type: 3}
 --- !u!1 &1869819816
 GameObject:
   m_ObjectHideFlags: 0
@@ -30377,7 +30377,7 @@ MonoBehaviour:
   speed: 2
   damage: 1
   health: 5
-  deathEffectPrefab: {fileID: 0}
+  deathEffectPrefab: {fileID: 1998948848540504748, guid: f5da9a8fd00f02d4b966f3dc87fbe7e1, type: 3}
 --- !u!114 &2085706410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2716742568013275882, guid: f86e3e26752887045b4dcbb7259c4d8b, type: 3}

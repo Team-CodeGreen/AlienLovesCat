@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class trashGameManager : MonoBehaviour
 {
@@ -16,9 +17,14 @@ public class trashGameManager : MonoBehaviour
 
     void Start()
     {
+        StartGame();
+    }
+    void StartGame()
+    {
         timeRemaining = timeLimit;
         gameActive = true;
         clearPanel.SetActive(false);
+        ScoreManager.Instance.ResetScore(); // 점수 초기화
     }
 
     void Update()
@@ -40,4 +46,10 @@ public class trashGameManager : MonoBehaviour
         gameActive = false;
         clearPanel.SetActive(ScoreManager.Instance.Score >= targetScore);
     }
+    public void RestartGame()
+    {
+        // 현재 씬을 다시 로드하여 게임을 완전히 초기화
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }

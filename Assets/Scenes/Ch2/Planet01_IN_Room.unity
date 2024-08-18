@@ -11523,6 +11523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeQuests:
   - {fileID: 11400000, guid: f5b5cc937e8b8784e852c56cac15c3b8, type: 2}
+  - {fileID: 11400000, guid: 0fe784c38c6679145baf6c6fdfa756dc, type: 2}
   maxActiveQuests: 3
   inventory: {fileID: 1099610246}
   questToggles:

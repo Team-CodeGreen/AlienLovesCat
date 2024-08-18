@@ -15,8 +15,9 @@ MonoBehaviour:
   questName: "\uC554\uD638\uB97C \uD480\uC5B4 \uC9C0\uAD6C\uC5D0 \uB300\uD55C \uC815\uBCF4\uB97C
     \uC5BB\uC5B4\uB0B4\uB77C"
   questType: 0
-  isCompleted: 1
+  isCompleted: 0
   targetItem: {fileID: 11400000, guid: f295e2d46c57a6741887e678358b7f9f, type: 2}
   targetNPC: 
   targetScene: 
   nextQuest: {fileID: 11400000, guid: 0fe784c38c6679145baf6c6fdfa756dc, type: 2}
+  rewardItem: {fileID: 0}

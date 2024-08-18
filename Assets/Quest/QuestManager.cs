@@ -19,6 +19,7 @@ public class QuestManager : MonoBehaviour
     {
         UpdateQuestUI();
         SceneManager.sceneLoaded += OnSceneLoaded;
+        CheckQuestCompletion(SceneManager.GetActiveScene().name);
     }
 
     void OnDestroy()
@@ -58,6 +59,10 @@ public class QuestManager : MonoBehaviour
 
             if (quest.isCompleted)
             {
+                if(!inventory.HasItem(quest.rewardItem))
+                {
+                    inventory.AddItem(quest.rewardItem);
+                }
                 
 
                 if (quest.nextQuest != null && !activeQuests.Contains(quest.nextQuest))

@@ -22,6 +22,8 @@ public class Quest : ScriptableObject
 
     public Quest nextQuest;
 
+    public Item rewardItem;
+
     public void Initialize(string name, QuestType type, Item targetItem = null, string targetNPC = null, string targetScene = null, Quest nextQuest = null)
     {
         questName = name;
@@ -49,6 +51,14 @@ public class Quest : ScriptableObject
                 if (currentScene == targetScene)
                     isCompleted = true;
                 break;
+        }
+    }
+
+    public void GiveReward(Inventory inventory)
+    {
+        if (rewardItem != null)
+        {
+            inventory.AddItem(rewardItem);
         }
     }
 }

@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch2/Planet01_IN.unity
     guid: db4f885c4926f1245b9ee451b48478d7
   - enabled: 1
+    path: Assets/Scenes/Ch2/Planet01_IN_Room.unity
+    guid: 0934d821c9ac0dc47abcd492025f3e8a
+  - enabled: 1
     path: Assets/Scenes/Ch3/envPlanet.unity
     guid: 4d264f4c578ab8149a0318ab385c7625
   - enabled: 1
@@ -75,9 +78,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch3/mushroomHouse2.unity
     guid: b902026785200dc458b8b371411f484d
   - enabled: 1
-    path: Assets/Scenes/Ch3/mushroomHouse3.unity
-    guid: cabf4fb2005d46f4c8d41657efc4f096
-  - enabled: 1
     path: Assets/Scenes/Ch3/miniTitle2.unity
     guid: 599826e3c65a7da4cb6d0360dfc0007a
   - enabled: 1
@@ -87,15 +87,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch3/trashGame.unity
     guid: 7446a9806d05a4448bd2a9f477d1b10c
   - enabled: 1
-    path: Assets/Scenes/Ch3/mushroomHouse4.unity
+    path: Assets/Scenes/Ch3/mushroomHouse3.unity
     guid: cf419574c289f764b86bf96f7ee03cd3
-  - enabled: 1
-    path: Assets/Scenes/Ch3/BadAirs.unity
-    guid: 6a2052b4ab175dc4187afb9977bb5870
-  - enabled: 1
-    path: Assets/Scenes/Ch3/envPlanet3.unity
-    guid: 25e39697a615f2648870752bd4ff60de
-  - enabled: 1
-    path: Assets/Scenes/Ch3/envPlanet4.unity
-    guid: 97d98e29b89afd446bdc00fa5254e5c9
+
   m_configObjects: {}

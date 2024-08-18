@@ -27,6 +27,8 @@ public class NPCSceneChangeDialogue : MonoBehaviour
 
     void Start()
     {
+        PlayerController playerController = FindObjectOfType<PlayerController>();
+        playerController.SetMovementEnabled(true); // 씬이 로드될 때 움직임을 활성화
         dialogueUI.SetActive(false);
         nextButton.onClick.AddListener(OnNextButtonClicked);
         option1Button.onClick.AddListener(OnOption1Clicked);

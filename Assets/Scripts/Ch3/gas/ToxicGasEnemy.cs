@@ -12,6 +12,8 @@ public class ToxicGasEnemy : MonoBehaviour
     public int health = 5;
 
     public GameObject deathEffectPrefab; // 유해가스 사라질 때의 파티클 효과 프리팹
+    public GameObject dropItemPrefab; // 드롭할 아이템의 프리팹
+    public float dropChance = 0.5f; // 아이템이 드롭될 확률 (0.5f = 50%)
 
     private Vector3 startPoint;
     private Vector3 target;
@@ -99,6 +101,17 @@ public class ToxicGasEnemy : MonoBehaviour
             Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
         }
 
+        // 확률에 따라 아이템 드롭
+        if (dropItemPrefab != null && Random.value <= dropChance)
+        {
+            Debug.Log("아이템 드롭됨"); // 디버깅 로그 추가
+            Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("아이템 드롭 안 됨"); // 디버깅 로그 추가
+        }
+
         // 객체를 비활성화하지 않고 위치를 숨긴 후 다시 나타나도록 함
         StartCoroutine(Respawn());
     }
@@ -109,7 +122,7 @@ public class ToxicGasEnemy : MonoBehaviour
         transform.position = new Vector3(10000, 10000, 0);
 
         // 5초 대기
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
 
         // 다시 활성화하여 초기 위치로 되돌리고, 체력 초기화
         transform.position = startPoint;
@@ -125,7 +138,6 @@ public class ToxicGasEnemy : MonoBehaviour
             if (playerController != null)
             {
                 playerController.TakeDamage(damage);
-
             }
         }
     }

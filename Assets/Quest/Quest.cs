@@ -1,29 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public abstract class Quest : ScriptableObject
+public enum QuestType
 {
-    public string questName;
-    public bool isCompleted;
-
-    public abstract void CheckQuestCompletion();
-
-    public virtual void CompleteQuest()
-    {
-        
-        isCompleted = true;
-        Debug.Log(questName + " ¿Ï·á");
-
-        if(QuestCanvas.Instance != null)
-        {
-            QuestCanvas.Instance.UpdateQuestUI();
-        }
-
-        
-    }
-    
+    ItemCollection,
+    TalkToNPC,
+    ReachLocation
 }
 
+[CreateAssetMenu(fileName = "NewQuest")]
+public class Quest : ScriptableObject
+{
+    public string questName;
+    public QuestType questType;
+    public bool isCompleted;
 
+    public Item targetItem;
+    public string targetNPC;
+    public string targetScene;
+
+    public Quest nextQuest;
+
+    public void Initialize(string name, QuestType type, Item targetItem = null, string targetNPC = null, string targetScene = null, Quest nextQuest = null)
+    {
+        questName = name;
+        questType = type;
+        this.targetItem = targetItem;
+        this.targetNPC = targetNPC;
+        this.targetScene = targetScene;
+        isCompleted = false;
+        this.nextQuest = nextQuest;
+    }
+
+    public void CheckCompletion(Inventory inventory, string currentScene, string npcName = null)
+    {
+        switch(questType)
+        {
+            case QuestType.ItemCollection:
+                if (inventory.HasItem(targetItem))
+                    isCompleted = true;
+                break;
+            case QuestType.TalkToNPC:
+                if (npcName == targetNPC)
+                    isCompleted = true;
+                break;
+            case QuestType.ReachLocation:
+                if (currentScene == targetScene)
+                    isCompleted = true;
+                break;
+        }
+    }
+}

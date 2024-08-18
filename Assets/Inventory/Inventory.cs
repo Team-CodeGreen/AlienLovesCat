@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
@@ -18,8 +19,8 @@ public class Inventory : MonoBehaviour
     private const int slotsPerPage = 7;
     private Slot focusedSlot = null;
 
-    [SerializeField]
-    private ItemQuest itemQuest;
+    //[SerializeField]
+    //private ItemQuest itemQuest;
    
 
     private void OnValidate()
@@ -31,10 +32,10 @@ public class Inventory : MonoBehaviour
     {
         FreshSlot();
 
-        if (itemQuest == null)
-        {
-            itemQuest = ScriptableObject.CreateInstance<ItemQuest>();
-        }
+        //if (itemQuest == null)
+        //{
+        //    itemQuest = ScriptableObject.CreateInstance<ItemQuest>();
+        //}
     }
 
     private void Start()
@@ -148,10 +149,12 @@ public class Inventory : MonoBehaviour
             items.Add(_item);
             FreshSlot();
             Debug.Log("아이템 넣음!");
+            OnItemAdded();
         }
 
         
-        if(itemQuest != null)
+
+        /*if(itemQuest != null)
         {
             Debug.Log("itemQuest 있음");
             itemQuest.CheckQuestCompletion();
@@ -160,9 +163,15 @@ public class Inventory : MonoBehaviour
         else
         {
             Debug.Log("itemQuest 없음");
-        }
-        
-        
+        }*/
+
+
+    }
+
+    public void OnItemAdded()
+    {
+        FindObjectOfType<QuestManager>().CheckQuestCompletion(SceneManager.GetActiveScene().name);
+
     }
     
     public void UseItem(Item _item)

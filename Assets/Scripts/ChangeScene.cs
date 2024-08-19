@@ -17,4 +17,9 @@ public class ChangeScene : MonoBehaviour
             SceneManager.LoadScene(sceneName); // ¾À º¯°æ
         }
     }
+
+    public void UpdateTriggerStatus(bool status)
+    {
+        GetComponent<BoxCollider2D>().isTrigger = status;
+    }
 }

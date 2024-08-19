@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public enum QuestType
@@ -22,6 +23,8 @@ public class Quest : ScriptableObject
 
     public Quest nextQuest;
 
+    public bool keyQuest;
+
     public List<Item> rewardItem;
 
     public void Initialize(string name, QuestType type, Item targetItem = null, string targetNPC = null, string targetScene = null, Quest nextQuest = null)
@@ -33,6 +36,9 @@ public class Quest : ScriptableObject
         this.targetScene = targetScene;
         isCompleted = false;
         this.nextQuest = nextQuest;
+        keyQuest = false;
+
+
     }
 
     public void CheckCompletion(Inventory inventory, string currentScene, string npcName = null)

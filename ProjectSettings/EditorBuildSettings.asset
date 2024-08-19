@@ -54,6 +54,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch2/Planet01_IN_Room.unity
     guid: 0934d821c9ac0dc47abcd492025f3e8a
   - enabled: 1
+    path: Assets/Scenes/Ch2/Planet01_IN_Back.unity
+    guid: d88f675959b000945a2535a4f4f30a13
+  - enabled: 1
+    path: Assets/Scenes/Ch2/Planet01_Back.unity
+    guid: 1670eba21c95f8f4495bcb20667837fd
+  - enabled: 1
     path: Assets/Scenes/Ch3/envPlanet.unity
     guid: 4d264f4c578ab8149a0318ab385c7625
   - enabled: 1

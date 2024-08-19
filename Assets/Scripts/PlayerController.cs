@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,7 +31,12 @@ public class PlayerController : MonoBehaviour
     public int maxHP = 5;
     public int currentHP;
     public GameObject hpObject;
-    
+
+    public Vector3 resetPosition;
+
+    public Image fadeImage;
+    public float fadeDuration = 1f;
+
 
     private bool canMove = true; // 플레이어 움직임 제어 변수 추가
 
@@ -44,6 +51,8 @@ public class PlayerController : MonoBehaviour
     public float knockbackForce = 10.0f;
     public float knockbackDuration = 1.0f;
 
+    public float bounceForce = 5f;
+
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
@@ -56,6 +65,8 @@ public class PlayerController : MonoBehaviour
         {
             originalPos = hpBarTransform.localPosition;
         }
+
+        resetPosition = transform.localPosition;
 
     }
 
@@ -137,24 +148,47 @@ public class PlayerController : MonoBehaviour
         canMove = enabled;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, GameObject enemy = null)
     {
-        currentHP -= amount;
-        hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
-
-        //Vector3 vector = Quaternion.AngleAxis(0.3f, Vector3.forward) * Vector3.right; rigidbody2d.AddForce(vector * speed);
-    
-        if(hpBarTransform != null)
+        if (hpBarTransform != null)
         {
             StartCoroutine(ShakeHPBar());
         }
 
-        StartCoroutine(KnockbackPlayer());
+        currentHP -= amount;
+        hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
+
+        
+
+        
+
+        //StartCoroutine(KnockbackPlayer());
+
+        /*Debug.Log("addforce,,,");
+
+        Rigidbody2D enemyRbody = enemy.gameObject.GetComponent<Rigidbody2D>();
+
+
+        Vector2 collisionDirection = (transform.position - enemy.transform.position).normalized;*/
+        
+
+        /*if(enemyRbody != null)
+        {
+            Debug.Log("rbody");
+            float relativeVelocity = Vector3.Dot(enemyRbody.velocity, collisionDirection);
+            rbody.AddForce(collisionDirection * (bounceForce + Mathf.Abs(relativeVelocity)), ForceMode2D.Impulse);
+        } else
+        {
+            Debug.Log("!rbody");
+            rbody.AddForce(collisionDirection * bounceForce, ForceMode2D.Impulse);
+        }*/
 
         if (currentHP <= 0)
         {
             Die();
+            
         }
+
     }
 
     private IEnumerator ShakeHPBar()
@@ -178,7 +212,7 @@ public class PlayerController : MonoBehaviour
     //knockbackPlayer 함수 들어가긴 하는데 티가 안나
     private IEnumerator KnockbackPlayer()
     {
-        Debug.Log("asdf");
+        
         Vector2 knockbackDirection = -transform.right * knockbackForce;
         rbody.AddForce(knockbackDirection, ForceMode2D.Impulse);
 
@@ -187,9 +221,32 @@ public class PlayerController : MonoBehaviour
         rbody.velocity = Vector2.zero;
     }
 
+
+
     void Die()
     {
-        Debug.Log("Gameover");
+        
+
+        StartCoroutine(HandleDeath());
+
     }
+
+    IEnumerator HandleDeath()
+    {
+        fadeImage.GetComponent<FadeController>().FadeIn();
+
+        yield return new WaitForSeconds(1f);
+
+        transform.position = resetPosition;
+
+        currentHP = maxHP;
+        hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
+
+        fadeImage.GetComponent<FadeController>().FadeOut();
+
+
+    }
+
+    
 }
 

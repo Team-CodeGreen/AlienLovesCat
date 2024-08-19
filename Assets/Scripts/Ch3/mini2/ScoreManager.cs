@@ -72,8 +72,7 @@ public class ScoreManager : MonoBehaviour
     {
         Debug.Log("Game Failed!");
 
-        // 게임을 중단시키고 시작 씬으로 돌아가기
-        Time.timeScale = 0f; // 게임을 멈추기 위해 시간을 멈춤
-        SceneManager.LoadScene("miniTitle2"); // 시작 화면으로 돌아가기
+        
+        SceneManager.LoadScene("mushroomHouse3"); // 시작 화면으로 돌아가기
     }
 }

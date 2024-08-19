@@ -90,6 +90,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Ch3/trashGame.unity
     guid: 7446a9806d05a4448bd2a9f477d1b10c
   - enabled: 1
+    path: Assets/Scenes/Ch3/envPlanet3.unity
+    guid: 25e39697a615f2648870752bd4ff60de
+  - enabled: 1
+    path: Assets/Scenes/Ch3/BadAirs.unity
+    guid: 6a2052b4ab175dc4187afb9977bb5870
+  - enabled: 1
+    path: Assets/Scenes/Ch3/envPlanet4.unity
+    guid: 19140c7da0b7a634ba60c42f49b8b894
+  - enabled: 1
     path: Assets/Scenes/Ch3/mushroomHouse4.unity
     guid: cf419574c289f764b86bf96f7ee03cd3
   m_configObjects: {}

@@ -3082,7 +3082,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1416331677980585262, guid: 1cb87792ac4e1034cbb10c5cde263c55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.16
+      value: -7.12
       objectReference: {fileID: 0}
     - target: {fileID: 1416331677980585262, guid: 1cb87792ac4e1034cbb10c5cde263c55, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3140,6 +3140,10 @@ PrefabInstance:
       propertyPath: hpObject
       value: 
       objectReference: {fileID: 484303772}
+    - target: {fileID: 9075211250201629091, guid: 1cb87792ac4e1034cbb10c5cde263c55, type: 3}
+      propertyPath: hpBarTransform
+      value: 
+      objectReference: {fileID: 484303773}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3765,6 +3769,11 @@ PrefabInstance:
 --- !u!1 &484303772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1731430694612786440, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
+  m_PrefabInstance: {fileID: 484303771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &484303773 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8528160470011628942, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
   m_PrefabInstance: {fileID: 484303771}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &589909056

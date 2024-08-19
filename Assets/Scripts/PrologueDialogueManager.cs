@@ -7,15 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class PrologueDialogueManager : MonoBehaviour
 {
-    public TMP_Text dialogueText;
-    public Button nextButton;
-    public Image backgroundImage;
+    public TMP_Text dialogueText;  // UI Text 객체를 참조
+    public Button nextButton;  // UI Button 객체를 참조
+    public Image backgroundImage; // UI Image 객체를 참조
 
-    public GameObject choicePanel;
-    public Button choice1Button;
-    public Button choice2Button;
-    public TMP_InputField nameInputField;
-    public Image fadeImage;
+    public GameObject choicePanel;  // 선택지 패널
+    public Button choice1Button;  // 선택지 1 버튼
+    public Button choice2Button;  // 선택지 2 버튼
+    public TMP_InputField nameInputField; // 이름 입력 필드
+    public Image fadeImage;  // 페이드아웃에 사용할 검은 이미지
+    public TMP_Text warningText; // 경고 메시지 텍스트 (행성 이름을 입력하세요)
+    public TMP_Text warningText2; // 경고 메시지 텍스트 (10자 까지만 입력 가능)
 
     private string[] dialogueLines = {
         "당신은 우주의 어딘가를 떠돌고 있다.",
@@ -27,38 +29,42 @@ public class PrologueDialogueManager : MonoBehaviour
         "{planetName}인, 행운을 빈다."
     };
 
-    public Sprite[] backgroundImages;
+    public Sprite[] backgroundImages; // 배경 이미지 배열을 정의
 
     private int currentLineIndex = 0;
-    public string planetName = "";
+    public string planetName = ""; // 행성 이름 저장 변수
 
-    private bool isTyping = false;
-    public float typingSpeed = 0.05f;
+    private bool isTyping = false; // 타이핑 중인지 여부 확인
+    public float typingSpeed = 0.05f; // 타이핑 속도
 
     void Start()
     {
         nextButton.onClick.AddListener(DisplayNextDialogue);
         choice1Button.onClick.AddListener(ChooseOption1);
         choice2Button.onClick.AddListener(ChooseOption2);
-        fadeImage.gameObject.SetActive(false);
+        nameInputField.characterLimit = 10; // 글자수 제한
+        nameInputField.onValueChanged.AddListener(HandleInputChange); // 글자수 제한 핸들러 추가
+
+        fadeImage.gameObject.SetActive(false); // 시작 시 페이드 이미지 비활성화
+        warningText.gameObject.SetActive(false); // 경고 메시지 비활성화
+        warningText2.gameObject.SetActive(false); 
         DisplayNextDialogue();
     }
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && !nameInputField.gameObject.activeInHierarchy)
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && !isTyping && !nameInputField.gameObject.activeInHierarchy)
         {
-            if (isTyping)
-            {
-                // 타이핑 중 스페이스바를 누르면 타이핑을 중단하고 전체 텍스트 표시
-                StopAllCoroutines();
-                dialogueText.text = dialogueLines[currentLineIndex];
-                isTyping = false;
-            }
-            else
-            {
-                DisplayNextDialogue();
-            }
+            DisplayNextDialogue();
+        }
+    }
+    void HandleInputChange(string input)
+    {
+        // 입력된 글자가 10글자를 넘으면 잘라내기
+        if (input.Length > 10)
+        {
+            nameInputField.text = input.Substring(0, 10);
+            StartCoroutine(ShowWarning("10자까지만 입력할 수 있습니다."));
         }
     }
 
@@ -80,6 +86,7 @@ public class PrologueDialogueManager : MonoBehaviour
             }
             else if (dialogueLine == "행성의 이름은 무엇인가?")
             {
+                // 배경 이미지 변경
                 if (currentLineIndex < backgroundImages.Length)
                 {
                     backgroundImage.sprite = backgroundImages[currentLineIndex];
@@ -88,6 +95,7 @@ public class PrologueDialogueManager : MonoBehaviour
             }
             else if (dialogueLine == "이곳이 당신의 행성이다.")
             {
+                // 배경 이미지 변경
                 if (currentLineIndex < backgroundImages.Length)
                 {
                     backgroundImage.sprite = backgroundImages[currentLineIndex];
@@ -97,6 +105,7 @@ public class PrologueDialogueManager : MonoBehaviour
             }
             else
             {
+                // 배경 이미지 변경
                 if (currentLineIndex < backgroundImages.Length)
                 {
                     backgroundImage.sprite = backgroundImages[currentLineIndex];
@@ -126,53 +135,72 @@ public class PrologueDialogueManager : MonoBehaviour
     IEnumerator ShowDialogueWithChoice(string sentence)
     {
         yield return StartCoroutine(TypeSentence(sentence));
-        yield return new WaitForSeconds(typingSpeed);
-        nextButton.gameObject.SetActive(false);
-        choicePanel.SetActive(true);
+        yield return new WaitForSeconds(typingSpeed); // 잠시 대기 후 선택지 표시
+        nextButton.gameObject.SetActive(false);  // 다음 버튼을 숨김
+        choicePanel.SetActive(true);  // 선택지 패널을 활성화
     }
 
     IEnumerator ShowDialogueWithInputField(string sentence)
     {
         yield return StartCoroutine(TypeSentence(sentence));
-        nameInputField.gameObject.SetActive(true);
-        nextButton.onClick.RemoveListener(DisplayNextDialogue);
-        nextButton.onClick.AddListener(SubmitName);
+        nameInputField.characterLimit = 10; // 글자수 제한
+        nameInputField.gameObject.SetActive(true); // 이름 입력 필드 활성화
+        nextButton.onClick.RemoveListener(DisplayNextDialogue); // 기존 리스너 제거
+        nextButton.onClick.AddListener(SubmitName); // 이름 제출 리스너 추가
     }
 
     void ChooseOption1()
     {
+        // 선택지 1에 대한 처리를 여기에 구현합니다.
         Debug.Log("선택지 1을 선택했습니다.");
-        choicePanel.SetActive(false);
-        nextButton.gameObject.SetActive(true);
-        currentLineIndex++;
-        DisplayNextDialogue();
+        choicePanel.SetActive(false);  // 선택지 패널을 숨깁니다.
+        nextButton.gameObject.SetActive(true);  // 다음 버튼을 다시 표시
+        currentLineIndex++;  // 다음 대화로 진행
+        DisplayNextDialogue();  // 다음 대화 표시
     }
 
     void ChooseOption2()
     {
+        // 선택지 2에 대한 처리를 여기에 구현합니다.
         Debug.Log("선택지 2를 선택했습니다.");
-        StartCoroutine(TypeSentence("다시 생각해보자."));
-        choicePanel.SetActive(false);
-        nextButton.gameObject.SetActive(true);
-        currentLineIndex--;
+        StartCoroutine(TypeSentence("다시 생각해보자.")); // 타이핑 애니메이션 적용
+        choicePanel.SetActive(false);  // 선택지 패널을 숨깁니다.
+        nextButton.gameObject.SetActive(true);  // 다음 버튼을 다시 표시
+        currentLineIndex--;  // 이전 대화로 돌아감
     }
 
     void SubmitName()
     {
         planetName = nameInputField.text;
-        nameInputField.gameObject.SetActive(false);
-        nextButton.onClick.RemoveListener(SubmitName);
-        nextButton.onClick.AddListener(DisplayNextDialogue);
-        currentLineIndex++;
-        DisplayNextDialogue();
+
+        if (string.IsNullOrEmpty(planetName))
+        {
+            StartCoroutine(ShowWarning("행성의 이름을 입력하세요."));
+            return; // 입력값이 없으면 함수 종료
+        }
+
+        nameInputField.gameObject.SetActive(false); // 입력 필드 숨김
+        nextButton.onClick.RemoveListener(SubmitName); // 리스너 제거
+        nextButton.onClick.AddListener(DisplayNextDialogue); // 기존 리스너 복원
+
+        // 이름 입력 이후의 대화 업데이트
+        currentLineIndex++;  // 다음 대화로 진행
+        DisplayNextDialogue();  // 다음 대화 표시
     }
 
+    IEnumerator ShowWarning(string warningMessage)
+    {
+        warningText.text = warningMessage;
+        warningText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2.0f); // 경고 메시지 표시 시간
+        warningText.gameObject.SetActive(false);
+    }
     IEnumerator FadeOut()
     {
-        float fadeDuration = 1.0f;
+        float fadeDuration = 1.0f; // 페이드아웃 지속 시간
         float elapsedTime = 0f;
 
-        fadeImage.gameObject.SetActive(true);
+        fadeImage.gameObject.SetActive(true); // 페이드 이미지 활성화
         Color fadeColor = fadeImage.color;
         fadeColor.a = 0;
         fadeImage.color = fadeColor;
@@ -187,6 +215,6 @@ public class PrologueDialogueManager : MonoBehaviour
 
         fadeColor.a = 1;
         fadeImage.color = fadeColor;
-        SceneManager.LoadScene("Ch1-1");
+        SceneManager.LoadScene("Ch1-1"); // 씬 변경
     }
 }

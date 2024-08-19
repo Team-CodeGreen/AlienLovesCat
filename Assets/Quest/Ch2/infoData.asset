@@ -20,4 +20,4 @@ MonoBehaviour:
   targetNPC: 
   targetScene: 
   nextQuest: {fileID: 11400000, guid: 0fe784c38c6679145baf6c6fdfa756dc, type: 2}
-  rewardItem: {fileID: 0}
+  rewardItem: []

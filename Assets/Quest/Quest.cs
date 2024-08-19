@@ -22,7 +22,7 @@ public class Quest : ScriptableObject
 
     public Quest nextQuest;
 
-    public Item rewardItem;
+    public List<Item> rewardItem;
 
     public void Initialize(string name, QuestType type, Item targetItem = null, string targetNPC = null, string targetScene = null, Quest nextQuest = null)
     {
@@ -54,11 +54,16 @@ public class Quest : ScriptableObject
         }
     }
 
+    //¹Ì»ç¿ë
     public void GiveReward(Inventory inventory)
     {
         if (rewardItem != null)
         {
-            inventory.AddItem(rewardItem);
+            foreach(Item item in rewardItem)
+            {
+                inventory.AddItem(item);
+            }
+            
         }
     }
 }

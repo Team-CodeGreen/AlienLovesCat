@@ -82,7 +82,7 @@ public class GuardController : MonoBehaviour
             PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
             if (playerController != null)
             {
-                playerController.TakeDamage(damage);
+                playerController.TakeDamage(damage, gameObject);
             }
         }
     }

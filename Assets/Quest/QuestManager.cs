@@ -72,6 +72,11 @@ public class QuestManager : MonoBehaviour
                 {
                     questsToAdd.Add(quest.nextQuest);
                 }
+
+                if(quest.keyQuest)
+                {
+                    UpdateChangeSceneTriggers();
+                }
             }
         }
 
@@ -79,7 +84,6 @@ public class QuestManager : MonoBehaviour
         {
             AddQuest(quest);
         }
-
 
 
         UpdateQuestUI();
@@ -108,6 +112,13 @@ public class QuestManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         CheckQuestCompletion(scene.name);
+    }
+
+    private void UpdateChangeSceneTriggers()
+    {
+        var changeSceneObj = GameObject.FindGameObjectWithTag("NextScene");
+
+        changeSceneObj.GetComponent<ChangeScene>().UpdateTriggerStatus(true);
     }
 
 }

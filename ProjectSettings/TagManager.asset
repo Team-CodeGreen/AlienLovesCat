@@ -13,6 +13,7 @@ TagManager:
   - trash
   - plastic
   - ToxicGas
+  - NextScene
   layers:
   - Default
   - TransparentFX

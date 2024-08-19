@@ -17,7 +17,7 @@ public class Quest : ScriptableObject
     public QuestType questType;
     public bool isCompleted;
 
-    public Item targetItem;
+    public List<Item> targetItems;
     public string targetNPC;
     public string targetScene;
 
@@ -27,11 +27,11 @@ public class Quest : ScriptableObject
 
     public List<Item> rewardItem;
 
-    public void Initialize(string name, QuestType type, Item targetItem = null, string targetNPC = null, string targetScene = null, Quest nextQuest = null)
+    public void Initialize(string name, QuestType type, List<Item> targetItems = null, string targetNPC = null, string targetScene = null, Quest nextQuest = null)
     {
         questName = name;
         questType = type;
-        this.targetItem = targetItem;
+        this.targetItems = targetItems;
         this.targetNPC = targetNPC;
         this.targetScene = targetScene;
         isCompleted = false;
@@ -46,7 +46,16 @@ public class Quest : ScriptableObject
         switch(questType)
         {
             case QuestType.ItemCollection:
-                if (inventory.HasItem(targetItem))
+                var count = targetItems.Count;
+
+                foreach(Item item in targetItems)
+                {
+                    if (inventory.HasItem(item))
+                    {
+                        count -= 1;
+                    }   
+                }
+                if (count == 0)
                     isCompleted = true;
                 break;
             case QuestType.TalkToNPC:

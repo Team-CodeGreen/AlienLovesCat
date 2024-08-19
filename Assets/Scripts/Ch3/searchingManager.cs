@@ -62,7 +62,7 @@ public class searchingManager : MonoBehaviour
         {
             Debug.Log("All stages completed!");
             // 모든 스테이지가 완료된 경우 mushroomHouse 씬으로 전환
-            SceneManager.LoadScene("mushroomHouse");
+            SceneManager.LoadScene("mushroomHouse3");
         }
     }
 

@@ -502,6 +502,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1010961583}
     - target: {fileID: 8488788122625013441, guid: df5dc1e04ebcf0f41adf8eee39af9781, type: 3}
+      propertyPath: activeQuests.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 00dc438ee71e0214da9ef2bc70f5561c, type: 2}
+    - target: {fileID: 8488788122625013441, guid: df5dc1e04ebcf0f41adf8eee39af9781, type: 3}
       propertyPath: questToggles.Array.data[0]
       value: 
       objectReference: {fileID: 1010961582}
@@ -617,6 +621,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 233741718}
+    - target: {fileID: 471559029090485191, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -172.00002
+      objectReference: {fileID: 0}
     - target: {fileID: 1299884734923156577, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2364,7 +2372,7 @@ PrefabInstance:
     - target: {fileID: 3805695055459800386, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}
+      objectReference: {fileID: 11400000, guid: b2248f2d567e8ad4491d81d2aa62115b, type: 2}
     - target: {fileID: 3805695055459800386, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -2372,7 +2380,7 @@ PrefabInstance:
     - target: {fileID: 3805695055459800386, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -2357117950256584546, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}
+      objectReference: {fileID: -129492936884679877, guid: b2248f2d567e8ad4491d81d2aa62115b, type: 2}
     - target: {fileID: 3805695055459800386, guid: 5cae81ee7bfc2f5479525718e3520b0a, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

@@ -19,4 +19,4 @@ MonoBehaviour:
   targetNPC: 
   targetScene: UFO
   nextQuest: {fileID: 0}
-  rewardItem: {fileID: 0}
+  rewardItem: []

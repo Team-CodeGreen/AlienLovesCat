@@ -25,12 +25,17 @@ public class startDialogue : MonoBehaviour
     private int currentDialogueIndex = 0; // 현재 대화 인덱스
     public float typingSpeed = 0.05f; // 타이핑 속도
 
+    private bool isTyping = false;
+
     void Start()
     {
         dialogueActive = true;
         dialogueUI.SetActive(true);
         nextButton.onClick.AddListener(OnNextButtonClicked); // 버튼 클릭 이벤트 추가
         DisplayNextDialogue();
+
+        // 플레이어 움직임 제한
+        SetPlayerMovement(false);
     }
 
     void Update()
@@ -52,6 +57,9 @@ public class startDialogue : MonoBehaviour
         dialogueActive = true;
         dialogueUI.SetActive(true);
         DisplayNextDialogue();
+
+        // 플레이어 움직임 제한
+        SetPlayerMovement(false);
     }
 
     void DisplayNextDialogue()
@@ -65,8 +73,6 @@ public class startDialogue : MonoBehaviour
             EndDialogue();
         }
     }
-
-    private bool isTyping = false;
 
     IEnumerator TypeSentence(string sentence)
     {
@@ -87,6 +93,9 @@ public class startDialogue : MonoBehaviour
         dialogueUI.SetActive(false);
         Debug.Log("모든 대화가 끝났습니다.");
         currentDialogueIndex = 0;
+
+        // 플레이어 움직임 다시 활성화
+        SetPlayerMovement(true);
     }
 
     void OnNextButtonClicked() // 버튼 클릭 시 호출될 메서드 추가
@@ -103,6 +112,15 @@ public class startDialogue : MonoBehaviour
                 dialogueText.text = dialogueTexts[currentDialogueIndex];
                 isTyping = false;
             }
+        }
+    }
+
+    void SetPlayerMovement(bool enable)
+    {
+        PlayerController playerController = FindObjectOfType<PlayerController>();
+        if (playerController != null)
+        {
+            playerController.SetMovementEnabled(enable);
         }
     }
 }

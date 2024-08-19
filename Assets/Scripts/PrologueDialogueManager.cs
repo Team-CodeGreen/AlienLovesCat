@@ -16,6 +16,8 @@ public class PrologueDialogueManager : MonoBehaviour
     public Button choice2Button;  // 선택지 2 버튼
     public TMP_InputField nameInputField; // 이름 입력 필드
     public Image fadeImage;  // 페이드아웃에 사용할 검은 이미지
+    public TMP_Text warningText; // 경고 메시지 텍스트 (행성 이름을 입력하세요)
+    public TMP_Text warningText2; // 경고 메시지 텍스트 (10자 까지만 입력 가능)
 
     private string[] dialogueLines = {
         "당신은 우주의 어딘가를 떠돌고 있다.",
@@ -40,17 +42,30 @@ public class PrologueDialogueManager : MonoBehaviour
         nextButton.onClick.AddListener(DisplayNextDialogue);
         choice1Button.onClick.AddListener(ChooseOption1);
         choice2Button.onClick.AddListener(ChooseOption2);
+        nameInputField.characterLimit = 10; // 글자수 제한
+        nameInputField.onValueChanged.AddListener(HandleInputChange); // 글자수 제한 핸들러 추가
+
         fadeImage.gameObject.SetActive(false); // 시작 시 페이드 이미지 비활성화
+        warningText.gameObject.SetActive(false); // 경고 메시지 비활성화
+        warningText2.gameObject.SetActive(false); 
         DisplayNextDialogue();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !isTyping && !nameInputField.gameObject.activeInHierarchy)
+        if ((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) && !isTyping && !nameInputField.gameObject.activeInHierarchy)
         {
             DisplayNextDialogue();
         }
-        
+    }
+    void HandleInputChange(string input)
+    {
+        // 입력된 글자가 10글자를 넘으면 잘라내기
+        if (input.Length > 10)
+        {
+            nameInputField.text = input.Substring(0, 10);
+            StartCoroutine(ShowWarning("10자까지만 입력할 수 있습니다."));
+        }
     }
 
     void DisplayNextDialogue()
@@ -128,6 +143,7 @@ public class PrologueDialogueManager : MonoBehaviour
     IEnumerator ShowDialogueWithInputField(string sentence)
     {
         yield return StartCoroutine(TypeSentence(sentence));
+        nameInputField.characterLimit = 10; // 글자수 제한
         nameInputField.gameObject.SetActive(true); // 이름 입력 필드 활성화
         nextButton.onClick.RemoveListener(DisplayNextDialogue); // 기존 리스너 제거
         nextButton.onClick.AddListener(SubmitName); // 이름 제출 리스너 추가
@@ -155,7 +171,14 @@ public class PrologueDialogueManager : MonoBehaviour
 
     void SubmitName()
     {
-        planetName = nameInputField.text; // 행성 이름 저장
+        planetName = nameInputField.text;
+
+        if (string.IsNullOrEmpty(planetName))
+        {
+            StartCoroutine(ShowWarning("행성의 이름을 입력하세요."));
+            return; // 입력값이 없으면 함수 종료
+        }
+
         nameInputField.gameObject.SetActive(false); // 입력 필드 숨김
         nextButton.onClick.RemoveListener(SubmitName); // 리스너 제거
         nextButton.onClick.AddListener(DisplayNextDialogue); // 기존 리스너 복원
@@ -165,6 +188,13 @@ public class PrologueDialogueManager : MonoBehaviour
         DisplayNextDialogue();  // 다음 대화 표시
     }
 
+    IEnumerator ShowWarning(string warningMessage)
+    {
+        warningText.text = warningMessage;
+        warningText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2.0f); // 경고 메시지 표시 시간
+        warningText.gameObject.SetActive(false);
+    }
     IEnumerator FadeOut()
     {
         float fadeDuration = 1.0f; // 페이드아웃 지속 시간

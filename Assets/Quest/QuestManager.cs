@@ -59,9 +59,12 @@ public class QuestManager : MonoBehaviour
 
             if (quest.isCompleted)
             {
-                if(!inventory.HasItem(quest.rewardItem))
+                foreach(Item item in quest.rewardItem)
                 {
-                    inventory.AddItem(quest.rewardItem);
+                    if(!inventory.HasItem(item))
+                    {
+                        inventory.AddItem(item);
+                    }
                 }
                 
 

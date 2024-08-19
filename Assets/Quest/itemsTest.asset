@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85a559445fdd3a46af218cec8da09f8, type: 3}
+  m_Name: itemsTest
+  m_EditorClassIdentifier: 
+  questName: "\uC544\uC774\uD15C \uC5EC\uB7EC\uAC1C"
+  questType: 0
+  isCompleted: 0
+  targetItems:
+  - {fileID: 11400000, guid: 2306d4d43c4166341afe9ce1f05aba9f, type: 2}
+  - {fileID: 11400000, guid: af669cf3096d7604eb2943127d90c63f, type: 2}
+  targetNPC: 
+  targetScene: 
+  nextQuest: {fileID: 0}
+  keyQuest: 0
+  rewardItem: []

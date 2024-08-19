@@ -4748,8 +4748,7 @@ MonoBehaviour:
   - "\uACE0\uC591\uC774\uB97C \uAD6C\uD574\uC57C \uD558\uB2C8\uAE4C."
   - "\uB2F9\uC7A5 \uB5A0\uB0A0 \uC900\uBE44\uB97C \uD574\uC57C\uACA0\uC5B4."
   typingSpeed: 0.05
-  nextSceneName: quest
-  newQuest: {fileID: 11400000, guid: c6497bd95b7ea594f88fbca1fa2274b5, type: 2}
+  nextSceneName: LivingRoom
 --- !u!4 &1106072919
 Transform:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ TagManager:
   - paper
   - trash
   - plastic
+  - ToxicGas
   layers:
   - Default
   - TransparentFX

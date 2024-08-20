@@ -2995,6 +2995,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8528160470011628942, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
   m_PrefabInstance: {fileID: 1766511570}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &509633763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7684258213864751706, guid: 75c9550d54b3b13458f1a3eec4d7520c, type: 3}
+  m_PrefabInstance: {fileID: 5099553630226018088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &545003171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2475579232088466507, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
@@ -4127,7 +4132,6 @@ GameObject:
   - component: {fileID: 1751791537}
   - component: {fileID: 1751791536}
   - component: {fileID: 1751791535}
-  - component: {fileID: 1751791538}
   m_Layer: 5
   m_Name: UFOButton
   m_TagString: Untagged
@@ -4199,13 +4203,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1751791538}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: OnStartButtonClicked
+      - m_Target: {fileID: 509633763}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4249,19 +4253,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751791533}
   m_CullTransparentMesh: 1
---- !u!114 &1751791538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751791533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6234d105521d5374da715b4c0c1bc44b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: UFO
 --- !u!1001 &1766511570
 PrefabInstance:
   m_ObjectHideFlags: 0

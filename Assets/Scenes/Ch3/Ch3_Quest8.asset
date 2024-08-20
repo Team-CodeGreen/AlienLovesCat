@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85a559445fdd3a46af218cec8da09f8, type: 3}
+  m_Name: Ch3_Quest8
+  m_EditorClassIdentifier: 
+  questName: "NPC\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC790"
+  questType: 1
+  isCompleted: 1
+  targetItems: []
+  targetNPC: "\uB300\uC7A5"
+  targetScene: 
+  nextQuest: {fileID: 11400000, guid: 80edf3e2cad3dd146b8c9848dbe4612e, type: 2}
+  keyQuest: 0
+  rewardItem:
+  - {fileID: 11400000, guid: b93ebc07234380048adc6253a4bf78a6, type: 2}

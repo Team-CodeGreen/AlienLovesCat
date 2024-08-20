@@ -16,7 +16,7 @@ MonoBehaviour:
     \uC7A0\uC785\uD558\uC790"
   questType: 2
   isCompleted: 0
-  targetItem: {fileID: 0}
+  targetItems: []
   targetNPC: 
   targetScene: Planet01_IN
   nextQuest: {fileID: 0}

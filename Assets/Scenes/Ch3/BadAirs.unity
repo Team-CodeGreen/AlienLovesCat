@@ -29819,7 +29819,7 @@ GameObject:
   - component: {fileID: 1444054269}
   m_Layer: 0
   m_Name: changeScene
-  m_TagString: Untagged
+  m_TagString: NextScene
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,8 +15,9 @@ MonoBehaviour:
   questName: "\uBC29\uC73C\uB85C \uB4E4\uC5B4\uAC00\uC790."
   questType: 2
   isCompleted: 0
-  targetItem: {fileID: 0}
+  targetItems: []
   targetNPC: 
   targetScene: quest
   nextQuest: {fileID: 0}
+  keyQuest: 0
   rewardItem: []

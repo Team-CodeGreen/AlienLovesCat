@@ -6607,7 +6607,7 @@ PrefabInstance:
       objectReference: {fileID: 1332835378}
     - target: {fileID: 8488788122625013441, guid: df5dc1e04ebcf0f41adf8eee39af9781, type: 3}
       propertyPath: activeQuests.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8488788122625013441, guid: df5dc1e04ebcf0f41adf8eee39af9781, type: 3}
       propertyPath: activeQuests.Array.data[0]

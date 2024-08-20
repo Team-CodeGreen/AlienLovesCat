@@ -4802,12 +4802,11 @@ MonoBehaviour:
   activeQuests:
   - {fileID: 11400000, guid: 45574e8375a60d54faa65ca46d8aa23e, type: 2}
   - {fileID: 11400000, guid: 830261bed80c22641a545ffcc1dcd341, type: 2}
-  - {fileID: 11400000, guid: 57cd9974e30974d4fb6faee30e93aa62, type: 2}
   maxActiveQuests: 3
   inventory: {fileID: 369751877}
   questToggles:
-  - {fileID: 540216960}
   - {fileID: 193735117}
+  - {fileID: 540216960}
   - {fileID: 93893237}
 --- !u!1001 &2040811938
 PrefabInstance:

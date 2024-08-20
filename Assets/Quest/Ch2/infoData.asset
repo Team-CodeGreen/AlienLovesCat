@@ -16,7 +16,8 @@ MonoBehaviour:
     \uC5BB\uC5B4\uB0B4\uB77C"
   questType: 0
   isCompleted: 0
-  targetItem: {fileID: 11400000, guid: f295e2d46c57a6741887e678358b7f9f, type: 2}
+  targetItems:
+  - {fileID: 11400000, guid: f295e2d46c57a6741887e678358b7f9f, type: 2}
   targetNPC: 
   targetScene: 
   nextQuest: {fileID: 11400000, guid: 0fe784c38c6679145baf6c6fdfa756dc, type: 2}

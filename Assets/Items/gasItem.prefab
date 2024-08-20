@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4356515737987630992}
   - component: {fileID: 8946453414314583888}
-  - component: {fileID: 5201796080752212264}
   - component: {fileID: 2210006576388560487}
+  - component: {fileID: 5570730197459108198}
   m_Layer: 0
   m_Name: gasItem
   m_TagString: Untagged
@@ -86,20 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5201796080752212264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884296405125505534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f9d99277a49751439318a82ec5dbde5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: ac28f9494d3c8a84f8dc31636c6d9966, type: 2}
-  KeyImage: {fileID: 8884296405125505534}
 --- !u!58 &2210006576388560487
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -132,6 +118,20 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025591668, y: -0.21753201}
+  m_Offset: {x: 0.013444974, y: -0.21753201}
   serializedVersion: 2
-  m_Radius: 0.23128381
+  m_Radius: 1.4761257
+--- !u!114 &5570730197459108198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884296405125505534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9d99277a49751439318a82ec5dbde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: ac28f9494d3c8a84f8dc31636c6d9966, type: 2}
+  KeyImage: {fileID: 0}

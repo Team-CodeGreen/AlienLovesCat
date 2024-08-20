@@ -3870,8 +3870,8 @@ MonoBehaviour:
   maxActiveQuests: 3
   inventory: {fileID: 620024234}
   questToggles:
-  - {fileID: 330322153}
   - {fileID: 874746124}
+  - {fileID: 330322153}
   - {fileID: 2097637337}
 --- !u!4 &748339264
 Transform:

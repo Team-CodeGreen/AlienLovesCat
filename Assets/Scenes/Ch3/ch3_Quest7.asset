@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: "\uC720\uD574\uAC00\uC2A4\uB97C \uCC98\uB9AC\uD558\uC790."
   questType: 0
-  isCompleted: 1
+  isCompleted: 0
   targetItems:
   - {fileID: 11400000, guid: ac28f9494d3c8a84f8dc31636c6d9966, type: 2}
   targetNPC: 

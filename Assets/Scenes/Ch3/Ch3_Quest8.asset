@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: "NPC\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC790"
   questType: 1
-  isCompleted: 1
+  isCompleted: 0
   targetItems: []
   targetNPC: "\uB300\uC7A5"
   targetScene: 

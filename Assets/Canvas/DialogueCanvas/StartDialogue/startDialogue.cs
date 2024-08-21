@@ -27,6 +27,8 @@ public class startDialogue : MonoBehaviour
 
     private bool isTyping = false;
 
+    public GameObject panel;
+
     void Start()
     {
         dialogueActive = true;
@@ -94,6 +96,10 @@ public class startDialogue : MonoBehaviour
         Debug.Log("모든 대화가 끝났습니다.");
         currentDialogueIndex = 0;
 
+        if(panel != null)
+        {
+            panel.SetActive(false);
+        }
         // 플레이어 움직임 다시 활성화
         SetPlayerMovement(true);
     }

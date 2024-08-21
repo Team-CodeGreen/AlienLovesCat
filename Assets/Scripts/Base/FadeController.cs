@@ -8,16 +8,16 @@ public class FadeController : MonoBehaviour
 {
     public void FadeIn()
     {
-        Debug.Log("FadeIn시작");
+        
         StartCoroutine(CoFadeIn());
-        Debug.Log("FadeIn끝");
+        
     }
 
     public void FadeOut()
     {
-        Debug.Log("FadeOut시작");
+        
         StartCoroutine(CoFadeOut());
-        Debug.Log("FadeOut끝");
+        
     }
 
     IEnumerator CoFadeIn()

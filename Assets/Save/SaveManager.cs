@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
-    public int playerHP = 100;
+    public int playerHP = 5;
     public List<string> inventory = new List<string>();
 
     public Button saveButton;  // Save ¹öÆ°

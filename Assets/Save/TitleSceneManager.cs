@@ -1,3 +1,4 @@
+
 using System;
 using TMPro;
 using UnityEngine;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 
 public class TitleSceneManager : MonoBehaviour
 {
+
     public Button newGameButton;
     public Button loadGameButton;
     public TMP_Text lastSavedTimeText;
@@ -32,14 +34,27 @@ public class TitleSceneManager : MonoBehaviour
 
     void StartNewGame()
     {
-        SceneManager.LoadScene("GameScene");  // 새 게임 시작
+        SceneManager.LoadScene("PrologueScene");  // 새 게임 시작
     }
 
     void LoadGame()
     {
         if (saveSystem.HasSaveFile())
         {
-            SceneManager.LoadScene("GameScene");  // 저장된 게임 불러오기
+            SaveData saveData = saveSystem.LoadGame();
+            if (saveData != null)
+            {
+                // 저장된 씬으로 전환
+                SceneManager.LoadScene(saveData.sceneName);
+
+                // 데이터 로드 후 필요한 설정을 추가할 수 있습니다.
+                // 예를 들어:
+                // SetupGameWithLoadedData(saveData);
+            }
+            else
+            {
+                Debug.LogWarning("저장된 데이터가 올바르지 않습니다.");
+            }
         }
         else
         {
@@ -51,11 +66,13 @@ public class TitleSceneManager : MonoBehaviour
     {
         if (saveSystem.HasSaveFile())
         {
-            DateTime lastSavedTime = saveSystem.GetLastSaveTime();
-            lastSavedTimeText.text = "Last Saved: " + lastSavedTime.ToString("yyyy-MM-dd HH:mm:ss");
+            string lastSavedTime = saveSystem.GetLastSaveTime();
+            Debug.Log("Last saved time from file: " + lastSavedTime);
+            lastSavedTimeText.text = "Last Saved: " + lastSavedTime;
         }
         else
         {
+            Debug.LogWarning("No saved game found.");
             lastSavedTimeText.text = "No saved game";
         }
     }

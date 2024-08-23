@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Save/TitleScene2.unity
     guid: 71e107ad3baae254ba61fb9c87d21ae1
   - enabled: 1
+    path: Assets/Save/TitleScene2.unity
+    guid: 1b69e2d3d2c0da84fb5c9975968c845f
+  - enabled: 1
     path: Assets/Scenes/Ch1/PrologueScene.unity
     guid: 571c7ca87aa981e41bdb25ae788161de
   - enabled: 1
@@ -116,4 +119,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ch4/Earth1.unity
     guid: 2bff57ba455dc9f4598f52a6fd46a706
+  - enabled: 1
+    path: Assets/Save/saveTest1.unity
+    guid: ef81d6828b09d3c48ad65cc72f321f16
+  - enabled: 1
+    path: Assets/Save/saveTest2.unity
+    guid: c2314110b87275448a80333d08d6109e
   m_configObjects: {}

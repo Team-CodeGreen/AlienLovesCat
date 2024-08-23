@@ -11,16 +11,17 @@ public class TitleSceneManager : MonoBehaviour
     public Button newGameButton;
     public Button loadGameButton;
     public TMP_Text lastSavedTimeText;
+    public TMP_Text planetNameText; // 행성 이름 텍스트 추가
 
     private SaveSystem saveSystem;
 
     void Start()
     {
-        saveSystem = GetComponent<SaveSystem>();
+        saveSystem = SaveSystem.Instance; // 싱글턴 인스턴스 사용
 
         if (saveSystem == null)
         {
-            Debug.LogError("SaveSystem 컴포넌트를 찾을 수 없습니다.");
+            Debug.LogError("SaveSystem 인스턴스를 찾을 수 없습니다.");
             return;
         }
 
@@ -32,12 +33,12 @@ public class TitleSceneManager : MonoBehaviour
         UpdateLastSavedTime();
     }
 
-    void StartNewGame()
+    public void StartNewGame()
     {
         SceneManager.LoadScene("PrologueScene");  // 새 게임 시작
     }
 
-    void LoadGame()
+    public void LoadGame()
     {
         if (saveSystem.HasSaveFile())
         {
@@ -75,5 +76,13 @@ public class TitleSceneManager : MonoBehaviour
             Debug.LogWarning("No saved game found.");
             lastSavedTimeText.text = "No saved game";
         }
+    }
+    void OnEnable()
+    {
+        // 타이틀 씬으로 돌아왔을 때 이벤트 다시 설정
+        newGameButton.onClick.AddListener(StartNewGame);
+        loadGameButton.onClick.AddListener(LoadGame);
+        // 씬이 활성화될 때 저장된 정보를 업데이트
+        UpdateLastSavedTime();
     }
 }

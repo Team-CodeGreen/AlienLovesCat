@@ -7,26 +7,27 @@ using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
-    private static SaveSystem instance;
+    public static SaveSystem Instance { get; private set; }
     private string savePath;
     void Awake()
     {
         // 싱글턴 패턴을 사용하여 SaveSystem 인스턴스를 유지
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject); // 씬 전환 시 오브젝트 유지
         }
         else
         {
-            Destroy(gameObject); // 이미 인스턴스가 존재하면 새로 생성된 오브젝트는 파괴
+            //Destroy(gameObject); // 이미 인스턴스가 존재하면 새로 생성된 오브젝트는 파괴
         }
     }
     void Start()
     {
         savePath = Application.persistentDataPath + "/savefile.json";
         Debug.Log("Save path: " + savePath);
-        
+
+      
         // 저장된 시간 출력
         if (HasSaveFile())
         {
@@ -39,14 +40,16 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    public void SaveGame(int playerHP, List<string> inventory)
+    public void SaveGame(int playerHP, List<string> inventory, string planetName)
     {
         SaveData saveData = new SaveData
         {
             hp = playerHP,
             inventoryItems = inventory,
             saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-            sceneName = SceneManager.GetActiveScene().name  // 현재 씬 이름 저장
+            sceneName = SceneManager.GetActiveScene().name,  // 현재 씬 이름 저장
+            planetName = planetName // 행성 이름 저장
+
         };
 
         string json = JsonUtility.ToJson(saveData, true);
@@ -90,4 +93,5 @@ public class SaveData
     public List<string> inventoryItems;
     public string saveTime;
     public string sceneName;  // 저장된 씬 이름 추가
+    public string planetName; // 행성 이름 추가
 }

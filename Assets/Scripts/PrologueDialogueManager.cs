@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PrologueDialogueManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class PrologueDialogueManager : MonoBehaviour
     public Image fadeImage;  // 페이드아웃에 사용할 검은 이미지
     public TMP_Text warningText; // 경고 메시지 텍스트 (행성 이름을 입력하세요)
     public TMP_Text warningText2; // 경고 메시지 텍스트 (10자 까지만 입력 가능)
+
+    // 추가: playerHP와 inventory 변수
+    public int playerHP = 5; // 기본값 설정
+    public List<string> inventory = new List<string>();
 
     private string[] dialogueLines = {
         "당신은 우주의 어딘가를 떠돌고 있다.",
@@ -36,18 +41,29 @@ public class PrologueDialogueManager : MonoBehaviour
 
     private bool isTyping = false; // 타이핑 중인지 여부 확인
     public float typingSpeed = 0.05f; // 타이핑 속도
-
+    private SaveManager saveManager;
     void Start()
     {
+        saveManager = FindObjectOfType<SaveManager>();
+        if (saveManager == null)
+        {
+            Debug.LogError("SaveManager를 찾을 수 없습니다.");
+        }
+        else
+        {
+            playerHP = saveManager.playerHP;
+            inventory = saveManager.inventory;
+        }
+
         nextButton.onClick.AddListener(DisplayNextDialogue);
         choice1Button.onClick.AddListener(ChooseOption1);
         choice2Button.onClick.AddListener(ChooseOption2);
-        nameInputField.characterLimit = 10; // 글자수 제한
-        nameInputField.onValueChanged.AddListener(HandleInputChange); // 글자수 제한 핸들러 추가
+        nameInputField.characterLimit = 10;
+        nameInputField.onValueChanged.AddListener(HandleInputChange);
 
-        fadeImage.gameObject.SetActive(false); // 시작 시 페이드 이미지 비활성화
-        warningText.gameObject.SetActive(false); // 경고 메시지 비활성화
-        warningText2.gameObject.SetActive(false); 
+        fadeImage.gameObject.SetActive(false);
+        warningText.gameObject.SetActive(false);
+        warningText2.gameObject.SetActive(false);
         DisplayNextDialogue();
     }
 
@@ -169,6 +185,15 @@ public class PrologueDialogueManager : MonoBehaviour
         currentLineIndex--;  // 이전 대화로 돌아감
     }
 
+    void DebugSaveData(SaveData saveData)
+    {
+        Debug.Log($"HP: {saveData.hp}");
+        Debug.Log($"Inventory Items: {string.Join(", ", saveData.inventoryItems)}");
+        Debug.Log($"Save Time: {saveData.saveTime}");
+        Debug.Log($"Scene Name: {saveData.sceneName}");
+        Debug.Log($"Planet Name: {saveData.planetName}");
+    }
+
     void SubmitName()
     {
         planetName = nameInputField.text;
@@ -176,18 +201,36 @@ public class PrologueDialogueManager : MonoBehaviour
         if (string.IsNullOrEmpty(planetName))
         {
             StartCoroutine(ShowWarning("행성의 이름을 입력하세요."));
-            return; // 입력값이 없으면 함수 종료
+            return;
         }
 
-        nameInputField.gameObject.SetActive(false); // 입력 필드 숨김
-        nextButton.onClick.RemoveListener(SubmitName); // 리스너 제거
-        nextButton.onClick.AddListener(DisplayNextDialogue); // 기존 리스너 복원
+        nameInputField.gameObject.SetActive(false);
+        nextButton.onClick.RemoveListener(SubmitName);
+        nextButton.onClick.AddListener(DisplayNextDialogue);
 
-        // 이름 입력 이후의 대화 업데이트
-        currentLineIndex++;  // 다음 대화로 진행
-        DisplayNextDialogue();  // 다음 대화 표시
+        currentLineIndex++;
+        DisplayNextDialogue();
+        // 로그 추가
+        Debug.Log("제출된 행성 이름: " + planetName);
+
+        // 저장 호출
+        try
+        {
+            SaveSystem.Instance.SaveGame(playerHP, inventory, planetName);
+            Debug.Log("게임 저장 완료. 행성 이름: " + planetName); // 디버그 로그 추가
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("게임 저장 중 오류 발생: " + ex.Message);
+        }
+
+        // 저장된 데이터 확인
+        SaveData loadedData = SaveSystem.Instance.LoadGame();
+        if (loadedData != null)
+        {
+            Debug.Log($"저장된 행성 이름: {loadedData.planetName}"); // 디버그 로그 추가
+        }
     }
-
     IEnumerator ShowWarning(string warningMessage)
     {
         warningText.text = warningMessage;

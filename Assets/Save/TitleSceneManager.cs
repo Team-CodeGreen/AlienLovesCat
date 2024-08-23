@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static SaveSystem;
 
 public class TitleSceneManager : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class TitleSceneManager : MonoBehaviour
         loadGameButton.onClick.AddListener(LoadGame);
 
         // 저장된 게임 정보 확인 및 시간 표시
-        UpdateLastSavedTime();
+        UpdateSavedInfo();
     }
 
     public void StartNewGame()
@@ -68,13 +69,23 @@ public class TitleSceneManager : MonoBehaviour
         if (saveSystem.HasSaveFile())
         {
             string lastSavedTime = saveSystem.GetLastSaveTime();
-            Debug.Log("Last saved time from file: " + lastSavedTime);
             lastSavedTimeText.text = "Last Saved: " + lastSavedTime;
+
+            SaveData saveData = saveSystem.LoadGame();
+            if (saveData != null)
+            {
+                Debug.Log("로드된 행성 이름: " + saveData.planetName); // 디버그 로그 추가
+                planetNameText.text = "Planet Name: " + saveData.planetName;
+            }
+            else
+            {
+                planetNameText.text = "Planet Name: N/A";
+            }
         }
         else
         {
-            Debug.LogWarning("No saved game found.");
             lastSavedTimeText.text = "No saved game";
+            planetNameText.text = "Planet Name: N/A";
         }
     }
     void OnEnable()
@@ -84,5 +95,29 @@ public class TitleSceneManager : MonoBehaviour
         loadGameButton.onClick.AddListener(LoadGame);
         // 씬이 활성화될 때 저장된 정보를 업데이트
         UpdateLastSavedTime();
+    }
+
+    void UpdateSavedInfo()
+    {
+        if (saveSystem.HasSaveFile())
+        {
+            string lastSavedTime = saveSystem.GetLastSaveTime();
+            lastSavedTimeText.text = "Last Saved: " + lastSavedTime;
+
+            SaveData saveData = saveSystem.LoadGame();
+            if (saveData != null)
+            {
+                planetNameText.text = "Planet Name: " + saveData.planetName;
+            }
+            else
+            {
+                planetNameText.text = "Planet Name: N/A";
+            }
+        }
+        else
+        {
+            lastSavedTimeText.text = "No saved game";
+            planetNameText.text = "Planet Name: N/A";
+        }
     }
 }

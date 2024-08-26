@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;  // TMP를 사용하기 위해 추가
+using System;
+using UnityEngine.SceneManagement;  // TMP를 사용하기 위해 추가
 
 public class DialogueManager : MonoBehaviour
 {
@@ -22,10 +23,21 @@ public class DialogueManager : MonoBehaviour
 
     private bool isTyping = false;
 
+    public Button option1;
+    public Button option2;
+
+    public string nextScene;
+
     void Start()
     {
         dialogueUI.SetActive(false); // 시작 시 다이얼로그 UI 비활성화
         nextButton.onClick.AddListener(OnNextButtonClicked);
+
+        if(option1 != null && option2 != null)
+        {
+            option1.gameObject.SetActive(false);
+            option2.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -42,6 +54,7 @@ public class DialogueManager : MonoBehaviour
         dialogueTexts = dialogues; // 대화 텍스트 배열 설정
         dialogueUI.SetActive(true); // 다이얼로그 UI 활성화
         currentDialogueIndex = 0; // 대화 인덱스 초기화
+        nextButton.gameObject.SetActive(true);
         StartCoroutine(TypeSentence(dialogueTexts[currentDialogueIndex])); // 첫 번째 대화 설정
 
         // 플레이어 컨트롤러의 움직임 제한
@@ -60,7 +73,14 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            EndDialogue(); // 대화 종료 함수 호출
+            if(option1 != null && option2 != null)
+            {
+                ShowOptions();
+            } else
+            {
+                EndDialogue(); // 대화 종료 함수 호출
+            }
+            
         }
     }
 
@@ -70,6 +90,13 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(false); // 다이얼로그 UI 비활성화
         Debug.Log("모든 대화가 끝났습니다.");
         currentDialogueIndex = 0; // 대화 인덱스 초기화
+
+        if(option1 != null && option2 != null)
+        {
+            
+            option1.gameObject.SetActive(false); // 선택지 버튼 비활성화
+            option2.gameObject.SetActive(false);
+        }
 
         // 플레이어 컨트롤러의 움직임 제한 해제
         PlayerController playerController = FindObjectOfType<PlayerController>();
@@ -108,5 +135,22 @@ public class DialogueManager : MonoBehaviour
                 currentDialogueIndex++; // 현재 인덱스를 여기서 증가시키도록 이동
             }
         }
+    }
+
+    void ShowOptions()
+    {
+        nextButton.gameObject.SetActive(false); // 다음 버튼 숨기기
+        option1.gameObject.SetActive(true); // 선택지 1 버튼 표시
+        option2.gameObject.SetActive(true); // 선택지 2 버튼 표시
+    }
+
+    public void OnOption1Clicked()
+    {
+        SceneManager.LoadScene(nextScene);
+    }
+
+    public void OnOption2Clicked()
+    {
+        EndDialogue();
     }
 }

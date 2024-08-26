@@ -10,6 +10,12 @@ public class ButtonManager : MonoBehaviour
     // Start 버튼 클릭 시 호출될 함수
     public void OnStartButtonClicked()
     {
+        /*public new string name = "asfd";*/
+
+        if(name != null)
+        {
+            SceneManager.LoadScene(name);
+        }
         // "GameScene"이라는 이름의 씬으로 변경
         SceneManager.LoadScene(SceneName);
     }

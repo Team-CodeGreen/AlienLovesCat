@@ -12,10 +12,24 @@ public class PickUp : MonoBehaviour
     [SerializeField]
     private GameObject KeyImage;
 
+    private GameObject BaseCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
-        inventory = GameObject.Find("Inventory");    
+        inventory = GameObject.Find("Inventory");
+        BaseCanvas = GameObject.Find("BaseCanvas");
+
+        Transform keyImageTransform = BaseCanvas.transform.Find("KeyImageZ");
+
+        Debug.Log(keyImageTransform);
+
+        if (keyImageTransform != null)
+        {
+            Debug.Log("키이미지있음");
+            GameObject imgZ = keyImageTransform.gameObject;
+            KeyImage = imgZ;
+        }
     }
 
     private void Update()

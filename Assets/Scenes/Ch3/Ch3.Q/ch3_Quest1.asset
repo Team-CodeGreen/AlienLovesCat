@@ -19,5 +19,5 @@ MonoBehaviour:
   targetNPC: "\uB300\uC7A5"
   targetScene: 
   nextQuest: {fileID: 0}
-  keyQuest: 0
+  keyQuest: 1
   rewardItem: []

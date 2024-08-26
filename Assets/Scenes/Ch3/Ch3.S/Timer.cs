@@ -25,6 +25,7 @@ public class Timer : MonoBehaviour
 
             if (currentTime <= 0)
             {
+                UpdateTimerText();
                 currentTime = 0;
                 isGameOver = true;
                 searchingManager.GameOver(); // searchingManager의 GameOver 메서드 호출
@@ -34,9 +35,15 @@ public class Timer : MonoBehaviour
 
     void UpdateTimerText()
     {
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if(currentTime <= 0)
+        {
+            timerText.text = "0:00";
+        } else
+        {
+            int minutes = Mathf.FloorToInt(currentTime / 60);
+            int seconds = Mathf.FloorToInt(currentTime % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
 
     public void StopTimer() // 타이머 멈추는 메서드 추가

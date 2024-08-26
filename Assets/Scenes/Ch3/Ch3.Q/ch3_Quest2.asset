@@ -18,6 +18,6 @@ MonoBehaviour:
   targetItems: []
   targetNPC: "\uBC84\uC12F"
   targetScene: 
-  nextQuest: {fileID: 0}
+  nextQuest: {fileID: 11400000, guid: 00dc438ee71e0214da9ef2bc70f5561c, type: 2}
   keyQuest: 0
   rewardItem: []

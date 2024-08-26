@@ -15,10 +15,13 @@ public class ToxicGasEnemy : MonoBehaviour
     public GameObject dropItemPrefab; // 드롭할 아이템의 프리팹
     public float dropChance = 0.5f; // 아이템이 드롭될 확률 (0.5f = 50%)
 
+   
+
     private Vector3 startPoint;
     private Vector3 target;
     private Animator animator;
     private bool isDead = false; // 죽은 상태를 추적하는 변수
+
 
     void Start()
     {
@@ -106,6 +109,7 @@ public class ToxicGasEnemy : MonoBehaviour
         {
             Debug.Log("아이템 드롭됨"); // 디버깅 로그 추가
             Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
+            
         }
         else
         {

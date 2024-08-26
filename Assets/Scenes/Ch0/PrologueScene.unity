@@ -535,6 +535,7 @@ MonoBehaviour:
   planetName: DefaultPlanetName
   saveButton: {fileID: 746172963}
   exitButton: {fileID: 1752580871}
+  planetNameInputField: {fileID: 36871526}
 --- !u!4 &500147417
 Transform:
   m_ObjectHideFlags: 0

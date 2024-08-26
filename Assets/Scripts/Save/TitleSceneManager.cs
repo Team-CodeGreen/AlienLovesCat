@@ -93,11 +93,19 @@ public class TitleSceneManager : MonoBehaviour
         newGameButton.onClick.AddListener(StartNewGame);
         loadGameButton.onClick.AddListener(LoadGame);
         // 씬이 활성화될 때 저장된 정보를 업데이트
-        UpdateLastSavedTime();
+        UpdateSavedInfo();
     }
 
     void UpdateSavedInfo()
     {
+        // saveSystem이 제대로 초기화되었는지 확인
+        if (saveSystem == null)
+        {
+            Debug.LogError("SaveSystem이 초기화되지 않았습니다.");
+            return;
+        }
+
+        // saveSystem이 null이 아닐 때만 HasSaveFile()을 호출
         if (saveSystem.HasSaveFile())
         {
             string lastSavedTime = saveSystem.GetLastSaveTime();
@@ -110,7 +118,7 @@ public class TitleSceneManager : MonoBehaviour
             }
             else
             {
-                planetNameText.text = "Planet Name:";
+                planetNameText.text = "Planet Name: ";
             }
         }
         else

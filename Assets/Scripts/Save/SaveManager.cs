@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class SaveManager : MonoBehaviour
 
     public Button saveButton;  // Save 버튼
     public Button exitButton;  // Exit 버튼
+    public TMP_InputField planetNameInputField; // InputField 선언
 
     private SaveSystem saveSystem;
     private static SaveManager instance;
@@ -27,7 +29,7 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);  // 이미 존재하는 인스턴스가 있으면 현재 오브젝트를 파괴
+            //Destroy(gameObject);  // 이미 존재하는 인스턴스가 있으면 현재 오브젝트를 파괴
             Debug.Log("기존 SaveManager 인스턴스 사용");
         }
     }
@@ -65,6 +67,16 @@ public class SaveManager : MonoBehaviour
         {
             Debug.LogError("Exit 버튼이 설정되지 않았습니다.");
         }
+
+        // InputField 리스너 설정
+        if (planetNameInputField != null)
+        {
+            planetNameInputField.onValueChanged.AddListener(SetPlanetName);
+        }
+        else
+        {
+            Debug.LogError("Planet Name InputField가 설정되지 않았습니다.");
+        }
     }
 
     public void SetPlanetName(string name)
@@ -72,6 +84,7 @@ public class SaveManager : MonoBehaviour
         planetName = name;
         Debug.Log("SetPlanetName 호출됨: " + planetName);
     }
+
     public void SaveGame()
     {
         try

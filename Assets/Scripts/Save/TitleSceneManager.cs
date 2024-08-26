@@ -78,13 +78,13 @@ public class TitleSceneManager : MonoBehaviour
             }
             else
             {
-                planetNameText.text = "Planet Name: N/A";
+                planetNameText.text = "Planet Name:";
             }
         }
         else
         {
             lastSavedTimeText.text = "No saved game";
-            planetNameText.text = "Planet Name: N/A";
+            planetNameText.text = "Planet Name: ";
         }
     }
     void OnEnable()
@@ -110,13 +110,13 @@ public class TitleSceneManager : MonoBehaviour
             }
             else
             {
-                planetNameText.text = "Planet Name: N/A";
+                planetNameText.text = "Planet Name:";
             }
         }
         else
         {
             lastSavedTimeText.text = "No saved game";
-            planetNameText.text = "Planet Name: N/A";
+            planetNameText.text = "Planet Name: ";
         }
     }
 }

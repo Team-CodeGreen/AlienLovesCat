@@ -1020,7 +1020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -84, y: 45}
+  m_AnchoredPosition: {x: -83.99997, y: 45}
   m_SizeDelta: {x: 160, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975360967
@@ -1113,9 +1113,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 209363305250028707, guid: d01698ba6824e2448aec75a8a1d1e3e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1874965881}
+    - target: {fileID: 209363305250028707, guid: d01698ba6824e2448aec75a8a1d1e3e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitToTitle
+      objectReference: {fileID: 0}
     - target: {fileID: 347243511508432183, guid: d01698ba6824e2448aec75a8a1d1e3e8, type: 3}
       propertyPath: m_Name
       value: saveCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740068388044236587, guid: d01698ba6824e2448aec75a8a1d1e3e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1874965881}
+    - target: {fileID: 1740068388044236587, guid: d01698ba6824e2448aec75a8a1d1e3e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SaveGame
       objectReference: {fileID: 0}
     - target: {fileID: 3497068953581712324, guid: d01698ba6824e2448aec75a8a1d1e3e8, type: 3}
       propertyPath: m_Camera
@@ -1741,7 +1757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -256.99994, y: 45}
+  m_AnchoredPosition: {x: -256.99997, y: 45}
   m_SizeDelta: {x: 160, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674273639
@@ -2314,6 +2330,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6c9852835f17034ba459fec0cec596e, type: 3}
+--- !u!114 &1874965881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7133979782710657496, guid: d6c9852835f17034ba459fec0cec596e, type: 3}
+  m_PrefabInstance: {fileID: 1874965880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a798a4563688f834f91dd80ea00ff86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2042880222
 GameObject:
   m_ObjectHideFlags: 0

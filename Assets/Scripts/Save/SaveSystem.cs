@@ -18,7 +18,7 @@ public class SaveSystem : MonoBehaviour
         }
         else
         {
-            //Destroy(gameObject);  // 이미 인스턴스가 존재하면 새로 생성된 오브젝트는 파괴
+            Destroy(gameObject);  // 이미 인스턴스가 존재하면 새로 생성된 오브젝트는 파괴
         }
     }
 

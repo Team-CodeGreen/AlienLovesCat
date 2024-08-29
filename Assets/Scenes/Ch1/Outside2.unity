@@ -2675,6 +2675,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &82101601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 140769920211338307, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
+  m_PrefabInstance: {fileID: 1104070080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3c5871001a60a4497206e76d2d37c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &88172685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5194,7 +5205,7 @@ Tilemap:
       - {fileID: -1076359402, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: -425007261, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: 1271216275, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: -1, z: 0}
@@ -5666,7 +5677,7 @@ MonoBehaviour:
   activeQuests:
   - {fileID: 11400000, guid: 57cd9974e30974d4fb6faee30e93aa62, type: 2}
   maxActiveQuests: 3
-  inventory: {fileID: 0}
+  inventory: {fileID: 82101601}
   questToggles:
   - {fileID: 1104070082}
   - {fileID: 1104070083}

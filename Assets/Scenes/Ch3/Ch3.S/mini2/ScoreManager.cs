@@ -15,6 +15,9 @@ public class ScoreManager : MonoBehaviour
     private float currentTime;
     public TMP_Text scoreText; // 점수 표시를 위한 UI 텍스트
 
+    public GameObject clearImage; // Clear 이미지 오브젝트 참조
+    public GameObject gameOverImage; // 게임 오버 이미지 오브젝트 참조
+
     void Awake()
     {
         if (Instance == null)
@@ -36,17 +39,20 @@ public class ScoreManager : MonoBehaviour
     {
         currentTime -= Time.deltaTime;
 
+        // 목표 점수에 도달했을 때
+        
+        if (Score >= targetScore)
+        {
+            HandleSuccess();
+            
+        }
         // 게임 시간이 다 되었을 때
-        if (currentTime <= 0)
+        else if (currentTime <= 0)
         {
             HandleFailure();
         }
 
-        // 목표 점수에 도달했을 때
-        if (Score >= targetScore)
-        {
-            HandleSuccess();
-        }
+        
     }
 
     public void AddScore(int amount)
@@ -59,20 +65,36 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score: " + Score.ToString();
     }
+
     void HandleSuccess()
     {
         Debug.Log("Game Cleared!");
+        clearImage.SetActive(true);
 
         // 게임을 중단시키고 다음 씬으로 넘어가기
-//        Time.timeScale = 0f; // 게임을 멈추기 위해 시간을 멈춤
-        SceneManager.LoadScene("mushroomHouse4"); // 다음 씬으로 전환
+        //        Time.timeScale = 0f; // 게임을 멈추기 위해 시간을 멈춤
+        //SceneManager.LoadScene("mushroomHouse4"); // 다음 씬으로 전환
+        StartCoroutine(ChangeScene("mushroomHouse4", 2f));
     }
+
+
+    
+
 
     void HandleFailure()
     {
         Debug.Log("Game Failed!");
 
-        
-        SceneManager.LoadScene("mushroomHouse3"); // 시작 화면으로 돌아가기
+
+        gameOverImage.SetActive(true);
+
+        StartCoroutine(ChangeScene("miniTitle2", 2f));
+        //SceneManager.LoadScene("miniTitle2"); // 시작 화면으로 돌아가기
+    }
+
+    private IEnumerator ChangeScene(string scene, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(scene);
     }
 }

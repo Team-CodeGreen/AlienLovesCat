@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HiddenObject : MonoBehaviour
 {
-    public GameObject checkMarkPrefab; // 체크 마크 프리팹 참조
+    public GameObject check; // 체크 마크 프리팹 참조
 
     private void Start()
     {
@@ -18,6 +18,7 @@ public class HiddenObject : MonoBehaviour
     {
         // 객체를 비활성화
         gameObject.SetActive(false);
+        check.SetActive(true);
         //checkMarkPrefab.SetActive(true);
     }
 }

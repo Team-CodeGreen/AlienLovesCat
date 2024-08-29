@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85a559445fdd3a46af218cec8da09f8, type: 3}
   m_Name: Ch3_Quest5
   m_EditorClassIdentifier: 
-  questName: "\uC720\uD574\uAC00\uC2A4\uB97C \uC81C\uAC70\uD558\uC790"
-  questType: 0
+  questName: "\uC720\uD574\uAC00\uC2A4\uB97C \uC81C\uAC70\uD558\uB7EC \uAC00\uC790"
+  questType: 2
   isCompleted: 0
-  targetItems:
-  - {fileID: 11400000, guid: ac28f9494d3c8a84f8dc31636c6d9966, type: 2}
+  targetItems: []
   targetNPC: 
-  targetScene: 
-  nextQuest: {fileID: 0}
+  targetScene: BadAirs
+  nextQuest: {fileID: 11400000, guid: a639009bf911c7f4584b95ec769c8640, type: 2}
   keyQuest: 0
   rewardItem: []

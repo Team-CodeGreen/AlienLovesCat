@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85a559445fdd3a46af218cec8da09f8, type: 3}
   m_Name: Ch3_Quest4
   m_EditorClassIdentifier: 
-  questName: "\uBC84\uC12F\uC528\uC5D0\uAC8C \uB9D0\uC744 \uAC78\uC790."
+  questName: "\uBC84\uC12F\uC528\uC5D0\uAC8C \uB2E4\uC2DC \uB9D0\uC744 \uAC78\uC790."
   questType: 1
   isCompleted: 0
   targetItems: []
   targetNPC: "\uBC84\uC12F"
   targetScene: 
-  nextQuest: {fileID: 0}
+  nextQuest: {fileID: 11400000, guid: 43bc9f103d98d814d97139851920d503, type: 2}
   keyQuest: 0
   rewardItem: []

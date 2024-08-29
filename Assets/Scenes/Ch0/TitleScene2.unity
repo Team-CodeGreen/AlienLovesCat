@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 348804278}
   - component: {fileID: 348804277}
   m_Layer: 0
-  m_Name: savesysy
+  m_Name: saveSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

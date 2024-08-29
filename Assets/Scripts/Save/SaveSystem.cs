@@ -11,16 +11,15 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton 패턴: 인스턴스가 없으면 현재 오브젝트를 할당하고 파괴되지 않도록 설정
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // 씬 전환 시에도 파괴되지 않도록 설정
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);  // 기존 인스턴스가 있으면 새 오브젝트를 파괴
-            return;  // 아래 코드를 실행하지 않도록 return
+            Destroy(gameObject);
+            return;
         }
     }
 
@@ -40,16 +39,13 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    public void SaveGame(int playerHP, List<string> inventory, string planetName)
+    public void SaveGame(string planetName, string sceneName)
     {
-        Debug.Log("저장할 행성 이름: " + planetName); // 저장할 행성 이름 로그
         SaveData saveData = new SaveData
         {
-            hp = playerHP,
-            inventoryItems = new List<string>(inventory),
             saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-            sceneName = SceneManager.GetActiveScene().name,
-            planetName = planetName
+            sceneName = sceneName,
+            planetName = planetName // 항상 저장
         };
 
         string json = JsonUtility.ToJson(saveData, true);
@@ -81,14 +77,11 @@ public class SaveSystem : MonoBehaviour
         }
         return null;
     }
-
 }
 
 [System.Serializable]
 public class SaveData
 {
-    public int hp;
-    public List<string> inventoryItems;
     public string saveTime;
     public string sceneName;
     public string planetName;

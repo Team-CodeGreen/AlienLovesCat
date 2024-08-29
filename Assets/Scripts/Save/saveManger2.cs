@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class saveManager2 : MonoBehaviour
 {
     public Button newGameButton;
@@ -16,9 +17,7 @@ public class saveManager2 : MonoBehaviour
     public TMP_InputField planetNameInputField; // 행성 이름 입력 필드
 
     private SaveSystem saveSystem;
-    public int playerHP = 100;
-    public List<string> inventory = new List<string>();
-    public string planetName = "DefaultPlanetName"; // 기본 행성 이름
+    private string planetName = "DefaultPlanetName"; // 기본 행성 이름
 
     void Start()
     {
@@ -45,7 +44,9 @@ public class saveManager2 : MonoBehaviour
             exitButton.onClick.AddListener(ExitToTitle);
 
         if (planetNameInputField != null)
-            planetNameInputField.onValueChanged.AddListener(SetPlanetName);
+        {
+            planetNameInputField.onValueChanged.AddListener(OnPlanetNameChanged);
+        }
 
         // 저장된 게임 정보 확인 및 시간 표시
         UpdateSavedInfo();
@@ -65,8 +66,11 @@ public class saveManager2 : MonoBehaviour
             {
                 // 저장된 씬으로 전환
                 SceneManager.LoadScene(saveData.sceneName);
-                // 필요한 경우 데이터를 게임에 로드하는 추가 설정
-                // SetupGameWithLoadedData(saveData);
+
+                // 저장된 행성 이름을 적용
+                planetName = saveData.planetName ?? "DefaultPlanetName";
+                planetNameInputField.text = planetName; // 입력 필드에 저장된 행성 이름 적용
+                UpdateSavedInfo(); // 저장된 정보 업데이트
             }
             else
             {
@@ -83,9 +87,25 @@ public class saveManager2 : MonoBehaviour
     {
         try
         {
-            saveSystem.SaveGame(playerHP, inventory, planetName);
-            Debug.Log("게임이 성공적으로 저장되었습니다.");
-            UpdateSavedInfo(); // 저장 후 정보를 업데이트
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            // 기존 저장된 데이터에서 행성 이름을 가져오려면
+            SaveData existingData = saveSystem.LoadGame();
+            string savedPlanetName = existingData?.planetName ?? planetName;
+
+            // 기본값이 아닐 때만 저장
+            if (planetName != "DefaultPlanetName")
+            {
+                saveSystem.SaveGame(planetName, sceneName);
+                Debug.Log("게임이 성공적으로 저장되었습니다.");
+                UpdateSavedInfo(); // 저장 후 정보를 업데이트
+            }
+            else
+            {
+                // 기본값인 경우 기존 저장된 데이터에서 행성 이름을 사용
+                saveSystem.SaveGame(savedPlanetName, sceneName);
+                Debug.Log("게임이 성공적으로 저장되었습니다. (행성 이름 기본값이라 이름은 저장되지 않음)");
+            }
         }
         catch (Exception ex)
         {
@@ -108,10 +128,9 @@ public class saveManager2 : MonoBehaviour
         SceneManager.LoadScene("Title");
     }
 
-    public void SetPlanetName(string name)
+    public void OnPlanetNameChanged(string name)
     {
         planetName = name;
-        Debug.Log("SetPlanetName 호출됨: " + planetName);
     }
 
     void UpdateSavedInfo()
@@ -124,19 +143,19 @@ public class saveManager2 : MonoBehaviour
             if (saveData != null)
             {
                 lastSavedTimeText.text = "Last Saved: " + saveData.saveTime;
-                planetNameText.text = "Planet Name: " + saveData.planetName;
-                Debug.Log("로딩된 행성 이름: " + saveData.planetName);
+                planetNameText.text = "Planet Name: " + (saveData.planetName ?? "DefaultPlanetName");
+                Debug.Log("로딩된 행성 이름: " + (saveData.planetName ?? "DefaultPlanetName"));
             }
             else
             {
                 lastSavedTimeText.text = "No saved game";
-                planetNameText.text = "Planet Name: ";
+                planetNameText.text = "Planet Name: DefaultPlanetName";
             }
         }
         else
         {
             lastSavedTimeText.text = "No saved game";
-            planetNameText.text = "Planet Name: ";
+            planetNameText.text = "Planet Name: DefaultPlanetName";
         }
     }
 
@@ -154,6 +173,11 @@ public class saveManager2 : MonoBehaviour
 
         if (exitButton != null)
             exitButton.onClick.AddListener(ExitToTitle);
+
+        if (planetNameInputField != null)
+        {
+            planetNameInputField.onValueChanged.AddListener(OnPlanetNameChanged);
+        }
 
         // 씬이 활성화될 때 저장된 정보를 업데이트
         UpdateSavedInfo();

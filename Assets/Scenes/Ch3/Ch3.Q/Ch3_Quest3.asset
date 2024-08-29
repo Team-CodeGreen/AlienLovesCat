@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85a559445fdd3a46af218cec8da09f8, type: 3}
   m_Name: Ch3_Quest3
   m_EditorClassIdentifier: 
-  questName: "\uD50C\uB85C\uAE45\uC744 \uC5F0\uC2B5\uD558\uC790."
+  questName: "\uD50C\uB85C\uAE45\uC744 \uC5F0\uC2B5\uD558\uC790"
   questType: 2
   isCompleted: 0
-  targetItems:
-  - {fileID: 11400000, guid: b93ebc07234380048adc6253a4bf78a6, type: 2}
+  targetItems: []
   targetNPC: 
-  targetScene: miniTitle
+  targetScene: mushroomHouse3
   nextQuest: {fileID: 0}
   keyQuest: 0
   rewardItem: []

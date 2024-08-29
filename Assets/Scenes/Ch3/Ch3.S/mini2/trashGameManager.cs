@@ -10,7 +10,8 @@ public class trashGameManager : MonoBehaviour
     public int targetScore = 100;
     public TMP_Text timerText;
     public TMP_Text scoreText;
-    public GameObject clearPanel;
+    
+    
 
     private float timeRemaining;
     private bool gameActive;
@@ -23,7 +24,7 @@ public class trashGameManager : MonoBehaviour
     {
         timeRemaining = timeLimit;
         gameActive = true;
-        clearPanel.SetActive(false);
+        
     }
 
     void Update()
@@ -43,7 +44,8 @@ public class trashGameManager : MonoBehaviour
     void EndGame()
     {
         gameActive = false;
-        clearPanel.SetActive(ScoreManager.Instance.Score >= targetScore);
+
+        //clearImage.SetActive(ScoreManager.Instance.Score >= targetScore);
     }
     public void RestartGame()
     {

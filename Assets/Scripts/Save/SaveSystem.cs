@@ -11,14 +11,16 @@ public class SaveSystem : MonoBehaviour
 
     private void Awake()
     {
+        // Singleton 패턴: 인스턴스가 없으면 현재 오브젝트를 할당하고 파괴되지 않도록 설정
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);  // 씬 전환 시에도 파괴되지 않도록 설정
         }
         else
         {
-            Destroy(gameObject);  // 이미 인스턴스가 존재하면 새로 생성된 오브젝트는 파괴
+            Destroy(gameObject);  // 기존 인스턴스가 있으면 새 오브젝트를 파괴
+            return;  // 아래 코드를 실행하지 않도록 return
         }
     }
 
@@ -50,7 +52,6 @@ public class SaveSystem : MonoBehaviour
             planetName = planetName
         };
 
-
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(savePath, json);
     }
@@ -73,7 +74,6 @@ public class SaveSystem : MonoBehaviour
 
     public SaveData LoadGame()
     {
-
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);

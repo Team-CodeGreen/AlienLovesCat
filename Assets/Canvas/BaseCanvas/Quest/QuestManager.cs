@@ -118,7 +118,11 @@ public class QuestManager : MonoBehaviour
     {
         var changeSceneObj = GameObject.FindGameObjectWithTag("NextScene");
 
-        changeSceneObj.GetComponent<ChangeScene>().UpdateTriggerStatus(true);
+        if(changeSceneObj != null)
+        {
+            changeSceneObj.GetComponent<ChangeScene>().UpdateTriggerStatus(true);
+        }
+        
     }
 
 }

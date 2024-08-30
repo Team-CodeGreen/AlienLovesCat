@@ -51,6 +51,12 @@ public class PlayerController : MonoBehaviour
 
     public float bounceForce = 5f;
 
+
+    private void Awake()
+    {
+        //DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();

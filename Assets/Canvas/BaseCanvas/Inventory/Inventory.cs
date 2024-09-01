@@ -31,7 +31,8 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         FreshSlot();
-
+        items = GameManager.Instance.inventoryItems;
+        UpdateSlots();
         //if (itemQuest == null)
         //{
         //    itemQuest = ScriptableObject.CreateInstance<ItemQuest>();
@@ -40,7 +41,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        UpdateSlots();
+        //UpdateSlots();
     }
 
     private void Update()
@@ -147,6 +148,7 @@ public class Inventory : MonoBehaviour
         if(items.Count < slots.Length)
         {
             items.Add(_item);
+            GameManager.Instance.AddItem(_item);
             FreshSlot();
             Debug.Log("아이템 넣음!");
             OnItemAdded();
@@ -177,6 +179,7 @@ public class Inventory : MonoBehaviour
     public void UseItem(Item _item)
     {
         items.Remove(_item);
+        GameManager.Instance.RemoveItem(_item);
         FreshSlot();
     }
 

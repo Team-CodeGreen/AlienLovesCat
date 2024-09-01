@@ -62,7 +62,9 @@ public class PlayerController : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        currentHP = maxHP;
+        maxHP = GameManager.Instance.maxHP;
+        currentHP = GameManager.Instance.currentHP;
+//        currentHP = maxHP;
         hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
 
         if(hpBarTransform != null)
@@ -160,6 +162,7 @@ public class PlayerController : MonoBehaviour
         }
 
         currentHP -= amount;
+        GameManager.Instance.SetHP(currentHP);
         hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
 
         
@@ -232,6 +235,7 @@ public class PlayerController : MonoBehaviour
         
 
         StartCoroutine(HandleDeath());
+        GameManager.Instance.SetHP(maxHP);
 
     }
 

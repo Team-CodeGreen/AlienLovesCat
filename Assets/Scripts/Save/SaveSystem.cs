@@ -1,37 +1,55 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveSystem : MonoBehaviour
 {
+    public static SaveSystem Instance { get; private set; }
     private string savePath;
 
-    void Start()
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    private void Start()
     {
         savePath = Application.persistentDataPath + "/savefile.json";
-    }
+        Debug.Log("Save path: " + savePath);
 
-    public void SaveGame(int hp, List<string> inventory)
-    {
-        PlayerData data = new PlayerData(hp, inventory);
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(savePath, json);
-
-        // 저장 시간 기록
-        File.WriteAllText(savePath + ".time", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-    }
-
-    public PlayerData LoadGame()
-    {
-        if (File.Exists(savePath))
+        if (HasSaveFile())
         {
-            string json = File.ReadAllText(savePath);
-            PlayerData data = JsonUtility.FromJson<PlayerData>(json);
-            return data;
+            string lastSavedTime = GetLastSaveTime();
+            Debug.Log("Last Saved Time: " + lastSavedTime);
         }
-        return null;
+        else
+        {
+            Debug.Log("No saved game found.");
+        }
+    }
+
+    public void SaveGame(string planetName, string sceneName)
+    {
+        SaveData saveData = new SaveData
+        {
+            saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+            sceneName = sceneName,
+            planetName = planetName // 항상 저장
+        };
+
+        string json = JsonUtility.ToJson(saveData, true);
+        File.WriteAllText(savePath, json);
     }
 
     public bool HasSaveFile()
@@ -39,14 +57,32 @@ public class SaveSystem : MonoBehaviour
         return File.Exists(savePath);
     }
 
-    public DateTime GetLastSaveTime()
+    public string GetLastSaveTime()
     {
-        if (File.Exists(savePath + ".time"))
+        if (File.Exists(savePath))
         {
-            string timeString = File.ReadAllText(savePath + ".time");
-            return DateTime.Parse(timeString);
+            string json = File.ReadAllText(savePath);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+            return saveData.saveTime;
         }
-        return DateTime.MinValue;
+        return "저장된 게임이 없습니다.";
+    }
+
+    public SaveData LoadGame()
+    {
+        if (File.Exists(savePath))
+        {
+            string json = File.ReadAllText(savePath);
+            return JsonUtility.FromJson<SaveData>(json);
+        }
+        return null;
     }
 }
 
+[System.Serializable]
+public class SaveData
+{
+    public string saveTime;
+    public string sceneName;
+    public string planetName;
+}

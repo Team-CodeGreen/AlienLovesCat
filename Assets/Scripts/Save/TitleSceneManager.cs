@@ -3,22 +3,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static SaveSystem;
 
 public class TitleSceneManager : MonoBehaviour
 {
+
     public Button newGameButton;
     public Button loadGameButton;
     public TMP_Text lastSavedTimeText;
+    public TMP_Text planetNameText; // 행성 이름 텍스트 추가
 
     private SaveSystem saveSystem;
 
     void Start()
     {
-        saveSystem = GetComponent<SaveSystem>();
+        saveSystem = SaveSystem.Instance; // 싱글턴 인스턴스 사용
 
         if (saveSystem == null)
         {
-            Debug.LogError("SaveSystem 컴포넌트를 찾을 수 없습니다.");
+            Debug.LogError("SaveSystem 인스턴스를 찾을 수 없습니다.");
             return;
         }
 
@@ -27,19 +30,33 @@ public class TitleSceneManager : MonoBehaviour
         loadGameButton.onClick.AddListener(LoadGame);
 
         // 저장된 게임 정보 확인 및 시간 표시
-        UpdateLastSavedTime();
+
+        UpdateSavedInfo();
     }
 
-    void StartNewGame()
+    public void StartNewGame()
     {
-        SceneManager.LoadScene("GameScene");  // 새 게임 시작
+        SceneManager.LoadScene("PrologueScene");  // 새 게임 시작
     }
 
-    void LoadGame()
+    public void LoadGame()
     {
         if (saveSystem.HasSaveFile())
         {
-            SceneManager.LoadScene("GameScene");  // 저장된 게임 불러오기
+            SaveData saveData = saveSystem.LoadGame();
+            if (saveData != null)
+            {
+                // 저장된 씬으로 전환
+                SceneManager.LoadScene(saveData.sceneName);
+
+                // 데이터 로드 후 필요한 설정을 추가할 수 있습니다.
+                // 예를 들어:
+                // SetupGameWithLoadedData(saveData);
+            }
+            else
+            {
+                Debug.LogWarning("저장된 데이터가 올바르지 않습니다.");
+            }
         }
         else
         {
@@ -51,12 +68,64 @@ public class TitleSceneManager : MonoBehaviour
     {
         if (saveSystem.HasSaveFile())
         {
-            DateTime lastSavedTime = saveSystem.GetLastSaveTime();
-            lastSavedTimeText.text = "Last Saved: " + lastSavedTime.ToString("yyyy-MM-dd HH:mm:ss");
+            string lastSavedTime = saveSystem.GetLastSaveTime();
+            lastSavedTimeText.text = "Last Saved: " + lastSavedTime;
+
+            SaveData saveData = saveSystem.LoadGame();
+            if (saveData != null)
+            {
+                Debug.Log("로드된 행성 이름: " + saveData.planetName); // 디버그 로그 추가
+                planetNameText.text = "Planet Name: " + saveData.planetName;
+            }
+            else
+            {
+                planetNameText.text = "Planet Name:";
+            }
         }
         else
         {
             lastSavedTimeText.text = "No saved game";
+            planetNameText.text = "Planet Name: ";
+        }
+    }
+    void OnEnable()
+    {
+        // 타이틀 씬으로 돌아왔을 때 이벤트 다시 설정
+        newGameButton.onClick.AddListener(StartNewGame);
+        loadGameButton.onClick.AddListener(LoadGame);
+        // 씬이 활성화될 때 저장된 정보를 업데이트
+        UpdateSavedInfo();
+    }
+
+    void UpdateSavedInfo()
+    {
+        Debug.Log("UpdateSavedInfo 호출됨");
+
+        if (saveSystem == null)
+        {
+            Debug.LogError("SaveSystem이 초기화되지 않았습니다.");
+            return;
+        }
+
+        if (saveSystem.HasSaveFile())
+        {
+            SaveData saveData = saveSystem.LoadGame();
+            if (saveData != null)
+            {
+                lastSavedTimeText.text = "Last Saved: " + saveData.saveTime;
+                planetNameText.text = "Planet Name: " + saveData.planetName;
+                Debug.Log("로딩된 행성 이름: " + saveData.planetName);
+            }
+            else
+            {
+                lastSavedTimeText.text = "No saved game";
+                planetNameText.text = "Planet Name: ";
+            }
+        }
+        else
+        {
+            lastSavedTimeText.text = "No saved game";
+            planetNameText.text = "Planet Name: ";
         }
     }
 }

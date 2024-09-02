@@ -290,8 +290,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC81C\uC791\n\nTeam Code Green\n\n\n\n\n\n\nspecial thanks\n\n\uAC10\uC0AC\uD574\uC694\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-the
-    end-"
+  m_text: "\uC81C\uC791\n\nTeam Code Green\n\n\n\n\n\n\nspecial thanks\n\n\uAC10\uC0AC\uD574\uC694\n\nthanks
+    to\n\n\uB098 \uC790\uC2E0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-the end-"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}
   m_sharedMaterial: {fileID: -2357117950256584546, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}

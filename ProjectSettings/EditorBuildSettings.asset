@@ -114,6 +114,18 @@ EditorBuildSettings:
     path: Assets/Scenes/UFO/UFO3.unity
     guid: fc523f7dcb5ca43478a87b0161b54640
   - enabled: 1
+    path: Assets/Scenes/Ch4/Planet04.unity
+    guid: 96fc8bee8b8f2fa4f89e38033ff6c76b
+  - enabled: 1
+    path: Assets/Scenes/Ch4/Planet04_Good.unity
+    guid: 0dfa59a925f155e458254a8a714f6660
+  - enabled: 1
+    path: Assets/Scenes/UFO/UFO4.unity
+    guid: 8c02e9d20b2bd1e41a4b4658c1526762
+  - enabled: 1
+    path: Assets/Scenes/Ch4/EndingScene.unity
+    guid: 3f07f3f8d81de2448a8c0e07a1b1ed52
+  - enabled: 0
     path: Assets/Scenes/Ch4/Earth1.unity
     guid: 2bff57ba455dc9f4598f52a6fd46a706
   m_configObjects: {}

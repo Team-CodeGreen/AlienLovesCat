@@ -80589,6 +80589,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -596.46967
       objectReference: {fileID: 0}
+    - target: {fileID: 5135513042827238661, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
+      propertyPath: m_text
+      value: "\uC815\uBCF4\uD589\uC131"
+      objectReference: {fileID: 0}
     - target: {fileID: 5230227910704047647, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -80832,6 +80836,10 @@ PrefabInstance:
     - target: {fileID: 8539420020522204074, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_Name
       value: BaseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906748115520273486, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
+      propertyPath: m_Color.a
+      value: 0.78431374
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

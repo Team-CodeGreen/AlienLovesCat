@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ed6ad1315d650478497a7a9f122130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creditsAnimator: {fileID: 0}
 --- !u!1 &851916078
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,8 +291,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC81C\uC791\n\nTeam Code Green\n\n\n\n\n\n\nspecial thanks\n\n\uAC10\uC0AC\uD574\uC694\n\nthanks
-    to\n\n\uB098 \uC790\uC2E0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-the end-"
+  m_text: "\uC81C\uC791\n\nTeam Code Green\n\n\n\n\n\n\nspecial thanks\n\n\uAC10\uC0AC\uD574\uC694\n\n\n\n\nthanks
+    to\n\n\uC774\uAE30\uC6A9 \uAD50\uC218\uB2D8\n\n\uB098 \uC790\uC2E0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-the
+    end-"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}
   m_sharedMaterial: {fileID: -2357117950256584546, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}

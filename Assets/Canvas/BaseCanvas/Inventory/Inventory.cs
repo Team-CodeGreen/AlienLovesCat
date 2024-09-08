@@ -25,11 +25,23 @@ public class Inventory : MonoBehaviour
 
     private void OnValidate()
     {
+        
         slots = slotParent.GetComponentsInChildren<Slot>();
     }
 
     private void Awake()
     {
+        
+        items = PlayerSave.playerSave.items;
+
+        /*if (items != null)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                AddItem(items[i]);
+            }
+        }*/
+
         FreshSlot();
 
         //if (itemQuest == null)
@@ -40,11 +52,14 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        
+        //items = PlayerSave.playerSave.items;
         UpdateSlots();
     }
 
     private void Update()
     {
+
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             ChangePage();
@@ -88,6 +103,7 @@ public class Inventory : MonoBehaviour
 
     private void UpdateSlots()
     {
+        
         for (int i = 0; i < slots.Length; i++)
         {
             slots[i].gameObject.SetActive(false);
@@ -104,7 +120,8 @@ public class Inventory : MonoBehaviour
 
     public void FreshSlot()
     {
-        if(slots == null)
+        
+        if (slots == null)
         {
             return;
         }
@@ -122,6 +139,8 @@ public class Inventory : MonoBehaviour
             slots[i].item = null;
             
         }
+
+        PlayerSave.playerSave.items = items;
 
     }
 
@@ -144,7 +163,8 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item _item)
     {
-        if(items.Count < slots.Length)
+        
+        if (items.Count < slots.Length)
         {
             items.Add(_item);
             FreshSlot();
@@ -152,8 +172,8 @@ public class Inventory : MonoBehaviour
             OnItemAdded();
         }
 
-        
 
+        
         /*if(itemQuest != null)
         {
             Debug.Log("itemQuest ÀÖÀ½");
@@ -171,7 +191,6 @@ public class Inventory : MonoBehaviour
     public void OnItemAdded()
     {
         FindObjectOfType<QuestManager>().CheckQuestCompletion(SceneManager.GetActiveScene().name);
-
     }
     
     public void UseItem(Item _item)

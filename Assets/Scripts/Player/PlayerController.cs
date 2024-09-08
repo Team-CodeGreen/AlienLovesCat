@@ -62,7 +62,8 @@ public class PlayerController : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        currentHP = maxHP;
+        currentHP = PlayerSave.playerSave.hp;
+        //PlayerSave.playerSave.hp = currentHP;
         hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
 
         if(hpBarTransform != null)
@@ -160,6 +161,7 @@ public class PlayerController : MonoBehaviour
         }
 
         currentHP -= amount;
+        PlayerSave.playerSave.hp = currentHP;
         hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
 
         
@@ -244,6 +246,7 @@ public class PlayerController : MonoBehaviour
         transform.position = resetPosition;
 
         currentHP = maxHP;
+        PlayerSave.playerSave.hp = currentHP;
         hpObject.GetComponent<HPManager>().UpdateHPImages(currentHP);
 
         fadeImage.GetComponent<FadeController>().FadeOut();

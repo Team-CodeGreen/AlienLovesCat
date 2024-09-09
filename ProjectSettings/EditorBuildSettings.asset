@@ -128,4 +128,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Ch4/Earth1.unity
     guid: 2bff57ba455dc9f4598f52a6fd46a706
+  - enabled: 1
+    path: Assets/Scenes/Ch4/ch4DialogueScene.unity
+    guid: a4e5400a51b9d104eadfa96abde4b906
   m_configObjects: {}

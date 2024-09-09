@@ -23,6 +23,13 @@ public class saveManager2 : MonoBehaviour
     {
         // SaveSystem 싱글턴 인스턴스 사용
         saveSystem = SaveSystem.Instance;
+        Debug.Log("Saving planet name: " + planetName); // 저장할 때의 행성 이름 출력
+        if (saveSystem.HasSaveFile())
+        {
+            SaveData saveData = saveSystem.LoadGame();
+            planetName = saveData.planetName ?? "DefaultPlanetName";
+            UpdateSavedInfo(); // UpdateSavedInfo 호출
+        }
 
         if (saveSystem == null)
         {

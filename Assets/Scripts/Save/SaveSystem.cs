@@ -18,7 +18,7 @@ public class SaveSystem : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+          //  gameObject.SetActive(false);
             return;
         }
     }
@@ -41,6 +41,7 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveGame(string planetName, string sceneName)
     {
+        Debug.Log("Saving planet name: " + planetName); // 행성 이름 디버그 로그 추가
         SaveData saveData = new SaveData
         {
             saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
@@ -50,6 +51,7 @@ public class SaveSystem : MonoBehaviour
 
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(savePath, json);
+        Debug.Log("Saved JSON: " + json); // JSON 데이터 디버그 로그 추가
     }
 
     public bool HasSaveFile()

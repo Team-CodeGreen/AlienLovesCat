@@ -31,9 +31,12 @@ public class TitleSceneManager : MonoBehaviour
 
         // 저장된 게임 정보 확인 및 시간 표시
 
-        UpdateSavedInfo();
+        UpdateLastSavedTime();
     }
-
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     public void StartNewGame()
     {
         SceneManager.LoadScene("PrologueScene");  // 새 게임 시작
@@ -66,6 +69,7 @@ public class TitleSceneManager : MonoBehaviour
 
     void UpdateLastSavedTime()
     {
+        Debug.Log("UpdateLastSavedTime 호출됨");
         if (saveSystem.HasSaveFile())
         {
             string lastSavedTime = saveSystem.GetLastSaveTime();

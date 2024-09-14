@@ -41,12 +41,24 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveGame(string planetName, string sceneName)
     {
-        Debug.Log("Saving planet name: " + planetName); // 행성 이름 디버그 로그 추가
+
+        // 기존 저장된 데이터 가져오기 (만약 존재한다면)
+        SaveData existingData = null;
+        if (File.Exists(savePath))
+        {
+            string existingJson = File.ReadAllText(savePath);
+            existingData = JsonUtility.FromJson<SaveData>(existingJson);
+        }
+
+        // 행성 이름이 기본값일 경우 기존 데이터에서 행성 이름 유지
+        string finalPlanetName = (planetName == "DefaultPlanetName" && existingData != null) ? existingData.planetName : planetName;
+
+        Debug.Log("Saving planet name: " + finalPlanetName); // 디버그 로그 추가
         SaveData saveData = new SaveData
         {
             saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
             sceneName = sceneName,
-            planetName = planetName // 항상 저장
+            planetName = finalPlanetName // 행성 이름 저장
         };
 
         string json = JsonUtility.ToJson(saveData, true);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;  // 씬 관리를 위해 추가
 
 public class LastDialogueManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class LastDialogueManager : MonoBehaviour
 
     private int currentLineIndex = 0;
     public string planetName = ""; // 행성 이름 저장 변수
+
+    public string nextSceneName; // 다음 씬 이름을 public으로 선언
 
     private bool isTyping = false; // 타이핑 중인지 여부 확인
     public float typingSpeed = 0.05f; // 타이핑 속도
@@ -61,6 +64,7 @@ public class LastDialogueManager : MonoBehaviour
         {
             // 대사가 모두 끝났을 때 처리할 내용을 여기에 추가 가능
             Debug.Log("대화가 끝났습니다.");
+            ChangeScene();
         }
     }
 
@@ -74,5 +78,14 @@ public class LastDialogueManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
         isTyping = false;
+    }
+    // 씬을 변경하는 함수
+    void ChangeScene()
+    {
+        // 다음 씬 이름이 비어있지 않으면 씬을 로드
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 }

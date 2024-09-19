@@ -383,6 +383,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5745f7ec0484f0e42a1c929923595922, type: 3}
   - {fileID: 21300000, guid: 5745f7ec0484f0e42a1c929923595922, type: 3}
   planetName: 
+  nextSceneName: Planet04_Good
   typingSpeed: 0.05
 --- !u!1 &331452440
 GameObject:
@@ -1325,7 +1326,7 @@ PrefabInstance:
       objectReference: {fileID: 904980631}
     - target: {fileID: 471559029090485191, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 324.00003
+      value: 324
       objectReference: {fileID: 0}
     - target: {fileID: 856752010321004637, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1513,7 +1514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3776250520207849227, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 324.00003
+      value: 324
       objectReference: {fileID: 0}
     - target: {fileID: 4213660563626200805, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1809,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464452727827475886, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 324.00003
+      value: 324
       objectReference: {fileID: 0}
     - target: {fileID: 8539420020522204074, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_Name
@@ -2491,7 +2492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -256.9999, y: 45}
+  m_AnchoredPosition: {x: -256.99994, y: 45}
   m_SizeDelta: {x: 160, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1674273639

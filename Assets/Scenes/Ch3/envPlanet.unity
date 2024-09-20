@@ -42556,6 +42556,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300053371387925996, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: mushroomHouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2459796132905241507, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
+      propertyPath: SceneName
+      value: mushroomHouse
+      objectReference: {fileID: 0}
     - target: {fileID: 2691818236460780073, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

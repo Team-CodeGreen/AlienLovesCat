@@ -438,7 +438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5745f7ec0484f0e42a1c929923595922, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a615272edb5872f4baddd4f692fca2b1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -466,7 +466,7 @@ Animator:
   m_GameObject: {fileID: 331452440}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2cf534edf85a7d04a9447d552a9a71cc, type: 2}
+  m_Controller: {fileID: 9100000, guid: dad7a2cdfbc102a48a010f01a1a1327d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1101,7 +1101,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: da2cc991f5164734a85bed278325f217, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cb8fb45bb915c894aabaa2abf7ec9fae, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

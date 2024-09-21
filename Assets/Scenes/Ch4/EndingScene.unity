@@ -366,8 +366,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC81C\uC791\n\nTeam Code Green\n\n\n\n\n\n\nspecial thanks\n\n\uAC10\uC0AC\uD574\uC694\n\n\n\n\nthanks
-    to\n\n\uC774\uAE30\uC6A9 \uAD50\uC218\uB2D8\n\n\uB098 \uC790\uC2E0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-the
+  m_text: "\uC81C\uC791\n\nTeam Code Green\n\n\n\n\n\n\u3134\n\n\nthanks to\n\n\uC774\uAE30\uC6A9
+    \uAD50\uC218\uB2D8\n\n\uCD5C\uACE0\uC758 \uD300\uC6D01 \uAE40\uBB38\uD76C\n\n\uCD5C\uACE0\uC758
+    \uD300\uC6D02 \uC11C\uBBF8\uB098\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-the
     end-"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f5a0bde1d9a65a4388c645283da112e, type: 2}

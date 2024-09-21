@@ -365,10 +365,10 @@ MonoBehaviour:
   warningText: {fileID: 1846153403}
   warningText2: {fileID: 592125181}
   backgroundImages:
-  - {fileID: 21300000, guid: 6889e5682e6bf6648a41f6a234128cd1, type: 3}
-  - {fileID: 21300000, guid: 6889e5682e6bf6648a41f6a234128cd1, type: 3}
-  - {fileID: 21300000, guid: b79e38d755e8fab4b948c1beda204413, type: 3}
-  - {fileID: 21300000, guid: 9057b3b196ff0a543b29540f52467897, type: 3}
+  - {fileID: 21300000, guid: 555246f36fbd4bd408c06291b780a106, type: 3}
+  - {fileID: 21300000, guid: 555246f36fbd4bd408c06291b780a106, type: 3}
+  - {fileID: 21300000, guid: bb76aee6c729aa44d8489ffbd44a25a0, type: 3}
+  - {fileID: 21300000, guid: 82341e3c575f4254185042b6ab271ec6, type: 3}
   - {fileID: 21300000, guid: ab795152db42a5a49bb661b3ab6dfbe1, type: 3}
   - {fileID: 21300000, guid: ab795152db42a5a49bb661b3ab6dfbe1, type: 3}
   planetName: 
@@ -1358,10 +1358,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -79.54
       objectReference: {fileID: 0}
-    - target: {fileID: 2300053371387925996, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Ch1-1
-      objectReference: {fileID: 0}
     - target: {fileID: 2400621736727361508, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1389,10 +1385,6 @@ PrefabInstance:
     - target: {fileID: 2400621736727361508, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2459796132905241507, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
-      propertyPath: SceneName
-      value: Ch1-1
       objectReference: {fileID: 0}
     - target: {fileID: 2691818236460780073, guid: 4272b91f95df468409d1fe787fe3601f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2109,7 +2101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 431, y: -376}
+  m_AnchoredPosition: {x: 431, y: -375.99994}
   m_SizeDelta: {x: -1560.1, y: -968.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466970552
@@ -2642,7 +2634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.789917, y: -313.72998}
+  m_AnchoredPosition: {x: 2.789917, y: -313.72992}
   m_SizeDelta: {x: -134.88, y: -740.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1738441826
